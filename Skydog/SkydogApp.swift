@@ -11,7 +11,7 @@ import SwiftUI
 struct SkydogApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ArtistListView()
         }
     }
 }

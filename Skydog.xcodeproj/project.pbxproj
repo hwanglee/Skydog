@@ -8,12 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		14ADCBDC287D28A200152965 /* SkydogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCBDB287D28A200152965 /* SkydogApp.swift */; };
-		14ADCBDE287D28A200152965 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCBDD287D28A200152965 /* ContentView.swift */; };
 		14ADCBE0287D28A300152965 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADCBDF287D28A300152965 /* Assets.xcassets */; };
 		14ADCBE3287D28A300152965 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADCBE2287D28A300152965 /* Preview Assets.xcassets */; };
 		14ADCBED287D28A300152965 /* SkydogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCBEC287D28A300152965 /* SkydogTests.swift */; };
 		14ADCBF7287D28A300152965 /* SkydogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCBF6287D28A300152965 /* SkydogUITests.swift */; };
 		14ADCBF9287D28A300152965 /* SkydogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCBF8287D28A300152965 /* SkydogUITestsLaunchTests.swift */; };
+		14ADCC23287D28EB00152965 /* String+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC06287D28EB00152965 /* String+Color.swift */; };
+		14ADCC24287D28EB00152965 /* ArtistListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC08287D28EB00152965 /* ArtistListView.swift */; };
+		14ADCC25287D28EB00152965 /* SourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC09287D28EB00152965 /* SourceView.swift */; };
+		14ADCC26287D28EB00152965 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC0B287D28EB00152965 /* AlbumCell.swift */; };
+		14ADCC27287D28EB00152965 /* YearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC0C287D28EB00152965 /* YearCell.swift */; };
+		14ADCC28287D28EB00152965 /* YearListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC0D287D28EB00152965 /* YearListView.swift */; };
+		14ADCC29287D28EB00152965 /* SourcePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC0E287D28EB00152965 /* SourcePickerView.swift */; };
+		14ADCC2A287D28EB00152965 /* HorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC10287D28EB00152965 /* HorizontalScrollView.swift */; };
+		14ADCC2B287D28EB00152965 /* ShowsScrollViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC11287D28EB00152965 /* ShowsScrollViewSection.swift */; };
+		14ADCC2C287D28EB00152965 /* ScrollViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC12287D28EB00152965 /* ScrollViewHeader.swift */; };
+		14ADCC2D287D28EB00152965 /* YearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC13287D28EB00152965 /* YearView.swift */; };
+		14ADCC2E287D28EB00152965 /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC14287D28EB00152965 /* ArtistView.swift */; };
+		14ADCC2F287D28EB00152965 /* ShowsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC15287D28EB00152965 /* ShowsListView.swift */; };
+		14ADCC30287D28EB00152965 /* SoundboardBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC17287D28EB00152965 /* SoundboardBadge.swift */; };
+		14ADCC31287D28EB00152965 /* RemasterBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC18287D28EB00152965 /* RemasterBadge.swift */; };
+		14ADCC32287D28EB00152965 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC1B287D28EB00152965 /* Source.swift */; };
+		14ADCC33287D28EB00152965 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC1C287D28EB00152965 /* Track.swift */; };
+		14ADCC34287D28EB00152965 /* SourceSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC1D287D28EB00152965 /* SourceSet.swift */; };
+		14ADCC35287D28EB00152965 /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC1E287D28EB00152965 /* Year.swift */; };
+		14ADCC36287D28EB00152965 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC1F287D28EB00152965 /* Venue.swift */; };
+		14ADCC37287D28EB00152965 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC20287D28EB00152965 /* Artist.swift */; };
+		14ADCC38287D28EB00152965 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC21287D28EB00152965 /* Show.swift */; };
+		14ADCC39287D28EB00152965 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC22287D28EB00152965 /* DataLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +58,6 @@
 /* Begin PBXFileReference section */
 		14ADCBD8287D28A200152965 /* Skydog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skydog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADCBDB287D28A200152965 /* SkydogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkydogApp.swift; sourceTree = "<group>"; };
-		14ADCBDD287D28A200152965 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		14ADCBDF287D28A300152965 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14ADCBE2287D28A300152965 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		14ADCBE8287D28A300152965 /* SkydogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkydogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +65,29 @@
 		14ADCBF2287D28A300152965 /* SkydogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkydogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADCBF6287D28A300152965 /* SkydogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkydogUITests.swift; sourceTree = "<group>"; };
 		14ADCBF8287D28A300152965 /* SkydogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkydogUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		14ADCC06287D28EB00152965 /* String+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Color.swift"; sourceTree = "<group>"; };
+		14ADCC08287D28EB00152965 /* ArtistListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistListView.swift; sourceTree = "<group>"; };
+		14ADCC09287D28EB00152965 /* SourceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceView.swift; sourceTree = "<group>"; };
+		14ADCC0B287D28EB00152965 /* AlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		14ADCC0C287D28EB00152965 /* YearCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearCell.swift; sourceTree = "<group>"; };
+		14ADCC0D287D28EB00152965 /* YearListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearListView.swift; sourceTree = "<group>"; };
+		14ADCC0E287D28EB00152965 /* SourcePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcePickerView.swift; sourceTree = "<group>"; };
+		14ADCC10287D28EB00152965 /* HorizontalScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalScrollView.swift; sourceTree = "<group>"; };
+		14ADCC11287D28EB00152965 /* ShowsScrollViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowsScrollViewSection.swift; sourceTree = "<group>"; };
+		14ADCC12287D28EB00152965 /* ScrollViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewHeader.swift; sourceTree = "<group>"; };
+		14ADCC13287D28EB00152965 /* YearView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearView.swift; sourceTree = "<group>"; };
+		14ADCC14287D28EB00152965 /* ArtistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
+		14ADCC15287D28EB00152965 /* ShowsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowsListView.swift; sourceTree = "<group>"; };
+		14ADCC17287D28EB00152965 /* SoundboardBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundboardBadge.swift; sourceTree = "<group>"; };
+		14ADCC18287D28EB00152965 /* RemasterBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemasterBadge.swift; sourceTree = "<group>"; };
+		14ADCC1B287D28EB00152965 /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
+		14ADCC1C287D28EB00152965 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		14ADCC1D287D28EB00152965 /* SourceSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceSet.swift; sourceTree = "<group>"; };
+		14ADCC1E287D28EB00152965 /* Year.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
+		14ADCC1F287D28EB00152965 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		14ADCC20287D28EB00152965 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		14ADCC21287D28EB00152965 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		14ADCC22287D28EB00152965 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +138,10 @@
 		14ADCBDA287D28A200152965 /* Skydog */ = {
 			isa = PBXGroup;
 			children = (
+				14ADCC19287D28EB00152965 /* API */,
+				14ADCC05287D28EB00152965 /* Extensions */,
+				14ADCC07287D28EB00152965 /* Views */,
 				14ADCBDB287D28A200152965 /* SkydogApp.swift */,
-				14ADCBDD287D28A200152965 /* ContentView.swift */,
 				14ADCBDF287D28A300152965 /* Assets.xcassets */,
 				14ADCBE1287D28A300152965 /* Preview Content */,
 			);
@@ -125,6 +171,82 @@
 				14ADCBF8287D28A300152965 /* SkydogUITestsLaunchTests.swift */,
 			);
 			path = SkydogUITests;
+			sourceTree = "<group>";
+		};
+		14ADCC05287D28EB00152965 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				14ADCC06287D28EB00152965 /* String+Color.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		14ADCC07287D28EB00152965 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				14ADCC0A287D28EB00152965 /* Cells */,
+				14ADCC0F287D28EB00152965 /* Components */,
+				14ADCC08287D28EB00152965 /* ArtistListView.swift */,
+				14ADCC09287D28EB00152965 /* SourceView.swift */,
+				14ADCC0D287D28EB00152965 /* YearListView.swift */,
+				14ADCC0E287D28EB00152965 /* SourcePickerView.swift */,
+				14ADCC13287D28EB00152965 /* YearView.swift */,
+				14ADCC14287D28EB00152965 /* ArtistView.swift */,
+				14ADCC15287D28EB00152965 /* ShowsListView.swift */,
+				14ADCC16287D28EB00152965 /* Badges */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		14ADCC0A287D28EB00152965 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				14ADCC0B287D28EB00152965 /* AlbumCell.swift */,
+				14ADCC0C287D28EB00152965 /* YearCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		14ADCC0F287D28EB00152965 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				14ADCC10287D28EB00152965 /* HorizontalScrollView.swift */,
+				14ADCC11287D28EB00152965 /* ShowsScrollViewSection.swift */,
+				14ADCC12287D28EB00152965 /* ScrollViewHeader.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		14ADCC16287D28EB00152965 /* Badges */ = {
+			isa = PBXGroup;
+			children = (
+				14ADCC17287D28EB00152965 /* SoundboardBadge.swift */,
+				14ADCC18287D28EB00152965 /* RemasterBadge.swift */,
+			);
+			path = Badges;
+			sourceTree = "<group>";
+		};
+		14ADCC19287D28EB00152965 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				14ADCC1A287D28EB00152965 /* Models */,
+				14ADCC22287D28EB00152965 /* DataLoader.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		14ADCC1A287D28EB00152965 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14ADCC1B287D28EB00152965 /* Source.swift */,
+				14ADCC1C287D28EB00152965 /* Track.swift */,
+				14ADCC1D287D28EB00152965 /* SourceSet.swift */,
+				14ADCC1E287D28EB00152965 /* Year.swift */,
+				14ADCC1F287D28EB00152965 /* Venue.swift */,
+				14ADCC20287D28EB00152965 /* Artist.swift */,
+				14ADCC21287D28EB00152965 /* Show.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +379,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14ADCBDE287D28A200152965 /* ContentView.swift in Sources */,
+				14ADCC24287D28EB00152965 /* ArtistListView.swift in Sources */,
 				14ADCBDC287D28A200152965 /* SkydogApp.swift in Sources */,
+				14ADCC25287D28EB00152965 /* SourceView.swift in Sources */,
+				14ADCC33287D28EB00152965 /* Track.swift in Sources */,
+				14ADCC30287D28EB00152965 /* SoundboardBadge.swift in Sources */,
+				14ADCC38287D28EB00152965 /* Show.swift in Sources */,
+				14ADCC27287D28EB00152965 /* YearCell.swift in Sources */,
+				14ADCC2B287D28EB00152965 /* ShowsScrollViewSection.swift in Sources */,
+				14ADCC2A287D28EB00152965 /* HorizontalScrollView.swift in Sources */,
+				14ADCC31287D28EB00152965 /* RemasterBadge.swift in Sources */,
+				14ADCC2D287D28EB00152965 /* YearView.swift in Sources */,
+				14ADCC34287D28EB00152965 /* SourceSet.swift in Sources */,
+				14ADCC2F287D28EB00152965 /* ShowsListView.swift in Sources */,
+				14ADCC37287D28EB00152965 /* Artist.swift in Sources */,
+				14ADCC35287D28EB00152965 /* Year.swift in Sources */,
+				14ADCC29287D28EB00152965 /* SourcePickerView.swift in Sources */,
+				14ADCC36287D28EB00152965 /* Venue.swift in Sources */,
+				14ADCC2E287D28EB00152965 /* ArtistView.swift in Sources */,
+				14ADCC2C287D28EB00152965 /* ScrollViewHeader.swift in Sources */,
+				14ADCC39287D28EB00152965 /* DataLoader.swift in Sources */,
+				14ADCC32287D28EB00152965 /* Source.swift in Sources */,
+				14ADCC28287D28EB00152965 /* YearListView.swift in Sources */,
+				14ADCC23287D28EB00152965 /* String+Color.swift in Sources */,
+				14ADCC26287D28EB00152965 /* AlbumCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +578,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -463,7 +607,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
