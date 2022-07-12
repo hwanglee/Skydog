@@ -184,6 +184,7 @@
 		14ADCC07287D28EB00152965 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				14ADCC16287D28EB00152965 /* Badges */,
 				14ADCC0A287D28EB00152965 /* Cells */,
 				14ADCC0F287D28EB00152965 /* Components */,
 				14ADCC08287D28EB00152965 /* ArtistListView.swift */,
@@ -193,7 +194,6 @@
 				14ADCC13287D28EB00152965 /* YearView.swift */,
 				14ADCC14287D28EB00152965 /* ArtistView.swift */,
 				14ADCC15287D28EB00152965 /* ShowsListView.swift */,
-				14ADCC16287D28EB00152965 /* Badges */,
 			);
 			path = Views;
 			sourceTree = "<group>";
