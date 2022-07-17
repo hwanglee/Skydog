@@ -17,16 +17,16 @@ struct SourceView: View {
         List(selectedSource?.sets ?? [], id: \.uuid) { sourceSet in
             Section {
                 ForEach(sourceSet.tracks, id: \.uuid) { track in
-                    HStack(spacing: 20) {
-                        Text("\(track.trackPosition)")
-                            .foregroundColor(.secondary)
-                        Text(track.title)
-                            .lineLimit(1)
-                        Spacer()
-                    }
-                    .contentShape(Rectangle())
-                    .onTapGesture {
+                    Button {
                         AudioPlayer.instance.setSource(url: track.url ?? "")
+                    } label: {
+                        HStack(spacing: 20) {
+                            Text("\(track.trackPosition)")
+                                .foregroundColor(.secondary)
+                            Text(track.title)
+                                .lineLimit(1)
+                            Spacer()
+                        }
                     }
                 }
             } header: {
