@@ -34,6 +34,7 @@ struct ArtistListView: View {
             .listStyle(.inset)
             .searchable(text: $searchText)
             .navigationTitle("Artists")
+            .disableAutocorrection(true)
         }.onAppear(perform: loadData)
     }
     
