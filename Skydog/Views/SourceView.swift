@@ -22,6 +22,11 @@ struct SourceView: View {
                             .foregroundColor(.secondary)
                         Text(track.title)
                             .lineLimit(1)
+                        Spacer()
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        AudioPlayer.instance.setSource(url: track.url ?? "")
                     }
                 }
             } header: {

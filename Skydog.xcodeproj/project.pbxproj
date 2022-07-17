@@ -37,6 +37,7 @@
 		14ADCC38287D28EB00152965 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC21287D28EB00152965 /* Show.swift */; };
 		14ADCC39287D28EB00152965 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC22287D28EB00152965 /* DataLoader.swift */; };
 		14E585D02884D3FB00398AA9 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E585CF2884D3FB00398AA9 /* UIImage+Color.swift */; };
+		14ADCC3C287E737600152965 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC3B287E737600152965 /* AudioPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		14ADCC21287D28EB00152965 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		14ADCC22287D28EB00152965 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		14E585CF2884D3FB00398AA9 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
+		14ADCC3B287E737600152965 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		14ADCC3D287E794000152965 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,7 @@
 		14ADCBDA287D28A200152965 /* Skydog */ = {
 			isa = PBXGroup;
 			children = (
+				14ADCC3D287E794000152965 /* Info.plist */,
 				14ADCC19287D28EB00152965 /* API */,
 				14ADCC05287D28EB00152965 /* Extensions */,
 				14ADCC07287D28EB00152965 /* Views */,
@@ -232,6 +236,7 @@
 		14ADCC19287D28EB00152965 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				14ADCC3A287E734900152965 /* Classes */,
 				14ADCC1A287D28EB00152965 /* Models */,
 				14ADCC22287D28EB00152965 /* DataLoader.swift */,
 			);
@@ -250,6 +255,14 @@
 				14ADCC21287D28EB00152965 /* Show.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		14ADCC3A287E734900152965 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				14ADCC3B287E737600152965 /* AudioPlayer.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,6 +408,7 @@
 				14ADCC2D287D28EB00152965 /* YearView.swift in Sources */,
 				14ADCC34287D28EB00152965 /* SourceSet.swift in Sources */,
 				14E585D02884D3FB00398AA9 /* UIImage+Color.swift in Sources */,
+				14ADCC3C287E737600152965 /* AudioPlayer.swift in Sources */,
 				14ADCC2F287D28EB00152965 /* ShowsListView.swift in Sources */,
 				14ADCC37287D28EB00152965 /* Artist.swift in Sources */,
 				14ADCC35287D28EB00152965 /* Year.swift in Sources */,
@@ -568,6 +582,7 @@
 				DEVELOPMENT_TEAM = H9X6NAZWVY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Skydog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -597,6 +612,7 @@
 				DEVELOPMENT_TEAM = H9X6NAZWVY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Skydog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
