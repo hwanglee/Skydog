@@ -11,7 +11,7 @@ struct YearCell: View, Equatable {
     var year: String
     
     var body: some View {
-        Image(uiImage: UIImage(named: "Backgrounds/\(Int.random(in: 1...18))")!)
+        Image(uiImage: UIImage(named: "Backgrounds/\(Int.random(in: 0...17))")!)
             .resizable()
             .frame(width: 150, height: 150)
             .scaledToFill()

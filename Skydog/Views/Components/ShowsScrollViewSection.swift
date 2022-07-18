@@ -18,7 +18,11 @@ struct ShowsScrollViewSection: View {
                     NavigationLink {
                         SourceView(show: item)
                     } label: {
-                        AlbumCell(venue: item.venue?.name ?? "", date: item.displayDate)
+                        AlbumCell(
+                            venue: item.venue?.name ?? "",
+                            date: item.displayDate,
+                            image: item.albumArt
+                        )
                     }
                     .buttonStyle(.plain)
                 }

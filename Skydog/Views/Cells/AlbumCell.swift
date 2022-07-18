@@ -10,10 +10,11 @@ import SwiftUI
 struct AlbumCell: View, Equatable {
     var venue: String
     var date: String
+    var image: UIImage
     
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Image(uiImage: UIImage(named: "Backgrounds/\(Int.random(in: 1...18))")!)
+            Image(uiImage: image)
                 .resizable()
                 .frame(width: 150, height: 150)
                 .scaledToFill()
@@ -49,8 +50,8 @@ struct AlbumCell: View, Equatable {
     }
 }
 
-struct AlbumCell_Previews: PreviewProvider {
-    static var previews: some View {
-        AlbumCell(venue: "test", date: "test")
-    }
-}
+//struct AlbumCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AlbumCell(venue: "test", date: "test")
+//    }
+//}

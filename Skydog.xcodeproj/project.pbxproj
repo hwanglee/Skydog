@@ -36,6 +36,7 @@
 		14ADCC37287D28EB00152965 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC20287D28EB00152965 /* Artist.swift */; };
 		14ADCC38287D28EB00152965 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC21287D28EB00152965 /* Show.swift */; };
 		14ADCC39287D28EB00152965 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC22287D28EB00152965 /* DataLoader.swift */; };
+		14E585D02884D3FB00398AA9 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E585CF2884D3FB00398AA9 /* UIImage+Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		14ADCC20287D28EB00152965 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		14ADCC21287D28EB00152965 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		14ADCC22287D28EB00152965 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		14E585CF2884D3FB00398AA9 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				14ADCC06287D28EB00152965 /* String+Color.swift */,
+				14E585CF2884D3FB00398AA9 /* UIImage+Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				14ADCC31287D28EB00152965 /* RemasterBadge.swift in Sources */,
 				14ADCC2D287D28EB00152965 /* YearView.swift in Sources */,
 				14ADCC34287D28EB00152965 /* SourceSet.swift in Sources */,
+				14E585D02884D3FB00398AA9 /* UIImage+Color.swift in Sources */,
 				14ADCC2F287D28EB00152965 /* ShowsListView.swift in Sources */,
 				14ADCC37287D28EB00152965 /* Artist.swift in Sources */,
 				14ADCC35287D28EB00152965 /* Year.swift in Sources */,
