@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BottomControlView: View {
-    let imageSize: CGFloat = 28
+    let imageSize: CGFloat = 24
     @ObservedObject var player = AudioPlayer.instance
     
     var body: some View {
