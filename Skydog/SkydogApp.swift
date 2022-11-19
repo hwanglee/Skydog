@@ -12,6 +12,7 @@ struct SkydogApp: App {
     var body: some Scene {
         WindowGroup {
             ArtistListView()
+            BottomControlView()
         }
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BottomControlView: View {
     let imageSize: CGFloat = 28
+    @State var isPlaying = false
     
     var body: some View {
         HStack {
@@ -21,15 +22,18 @@ struct BottomControlView: View {
             Image(systemName: "backward.fill")
                 .font(.system(size: imageSize))
             
-            Image(systemName: "play.fill")
+            Image(systemName: isPlaying ? "pause.fill" : "play.fill")
                 .font(.system(size: imageSize))
+                .onTapGesture {
+                    isPlaying = !isPlaying
+                }
             
             Image(systemName: "forward.fill")
                 .font(.system(size: imageSize))
         }
         .frame(maxWidth: .infinity)
         .padding()
-        .background(Color.red)
+        .background(.ultraThinMaterial)
     }
 }
 
