@@ -12,6 +12,7 @@ class AudioPlayer {
     public static var instance = AudioPlayer()
     
     private(set) var player = AVPlayer()
+    private(set) var isPlaying = false
     
     init() {
         do {
@@ -38,9 +39,11 @@ class AudioPlayer {
     
     func pause() {
         player.pause()
+        isPlaying = false
     }
     
     func play() {
         player.play()
+        isPlaying = true
     }
 }
