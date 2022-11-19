@@ -12,6 +12,7 @@ class AudioPlayer: ObservableObject {
     public static var instance = AudioPlayer()
     
     @Published private(set) var isPlaying = false
+    @Published private(set) var currentTrack: Track? = nil
     private(set) var player = AVPlayer()
     
     init() {
@@ -28,8 +29,10 @@ class AudioPlayer: ObservableObject {
         }
     }
     
-    func setSource(url: String) {
-        guard let url = URL(string: url) else { return }
+    func setTrack(track: Track) {
+        guard let trackURL = track.url, let url = URL(string: trackURL) else { return }
+        
+        currentTrack = track
         
         let playerItem = AVPlayerItem(url: url)
         player = AVPlayer(playerItem: playerItem)
@@ -38,12 +41,16 @@ class AudioPlayer: ObservableObject {
     }
     
     func pause() {
+        guard currentTrack != nil else { return }
+        
         print("pause audio player")
         player.pause()
         isPlaying = false
     }
     
     func play() {
+        guard currentTrack != nil else { return }
+        
         print("play audio player")
         player.play()
         isPlaying = true

@@ -18,7 +18,7 @@ struct SourceView: View {
             Section {
                 ForEach(sourceSet.tracks, id: \.uuid) { track in
                     Button {
-                        AudioPlayer.instance.setSource(url: track.url ?? "")
+                        AudioPlayer.instance.setTrack(track: track)
                     } label: {
                         HStack(spacing: 20) {
                             Text("\(track.trackPosition)")

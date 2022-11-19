@@ -15,25 +15,38 @@ struct BottomControlView: View {
         HStack {
             Image(systemName: "square.fill")
                 .font(.system(size: imageSize + 10))
-            Text("test")
+            Text(player.currentTrack?.title ?? "")
             
             Spacer()
             
-            Image(systemName: "backward.fill")
-                .font(.system(size: imageSize))
+            Button {
+            } label: {
+                Image(systemName: "backward.fill")
+                    .font(.system(size: imageSize))
+            }
+            .tint(Color(UIColor.label))
             
-            Image(systemName: player.isPlaying ? "pause.fill" : "play.fill")
-                .font(.system(size: imageSize))
-                .onTapGesture {
-                    if player.isPlaying {
-                        player.pause()
-                    } else {
-                        player.play()
-                    }
+            Button {
+                if player.isPlaying {
+                    player.pause()
+                } else {
+                    player.play()
                 }
+            } label: {
+                Image(systemName: player.isPlaying ? "pause.fill" : "play.fill")
+                    .font(.system(size: imageSize))
+            }
+            .tint(Color(UIColor.label))
+            .transaction { transaction in
+                transaction.disablesAnimations = true
+            }
             
-            Image(systemName: "forward.fill")
-                .font(.system(size: imageSize))
+            Button {
+            } label: {
+                Image(systemName: "forward.fill")
+                    .font(.system(size: imageSize))
+            }
+            .tint(Color(UIColor.label))
         }
         .frame(maxWidth: .infinity)
         .padding()
