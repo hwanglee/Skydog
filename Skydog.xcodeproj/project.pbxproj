@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		147349DE29289E3B00E4397B /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147349DD29289E3B00E4397B /* BottomControlView.swift */; };
 		147349E02928ABA700E4397B /* DataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147349DF2928ABA700E4397B /* DataLoaderTests.swift */; };
+		147349E42928B09000E4397B /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147349E22928B09000E4397B /* MarqueeText.swift */; };
+		147349E52928B09000E4397B /* SwiftUI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147349E32928B09000E4397B /* SwiftUI+Extension.swift */; };
 		14ADCBDC287D28A200152965 /* SkydogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCBDB287D28A200152965 /* SkydogApp.swift */; };
 		14ADCBE0287D28A300152965 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADCBDF287D28A300152965 /* Assets.xcassets */; };
 		14ADCBE3287D28A300152965 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADCBE2287D28A300152965 /* Preview Assets.xcassets */; };
@@ -62,6 +64,8 @@
 /* Begin PBXFileReference section */
 		147349DD29289E3B00E4397B /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		147349DF2928ABA700E4397B /* DataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderTests.swift; sourceTree = "<group>"; };
+		147349E22928B09000E4397B /* MarqueeText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
+		147349E32928B09000E4397B /* SwiftUI+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Extension.swift"; sourceTree = "<group>"; };
 		14ADCBD8287D28A200152965 /* Skydog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skydog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADCBDB287D28A200152965 /* SkydogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkydogApp.swift; sourceTree = "<group>"; };
 		14ADCBDF287D28A300152965 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		147349E12928B09000E4397B /* MarqueeText */ = {
+			isa = PBXGroup;
+			children = (
+				147349E22928B09000E4397B /* MarqueeText.swift */,
+				147349E32928B09000E4397B /* SwiftUI+Extension.swift */,
+			);
+			path = MarqueeText;
+			sourceTree = "<group>";
+		};
 		14ADCBCF287D28A200152965 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +210,7 @@
 		14ADCC07287D28EB00152965 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				147349E12928B09000E4397B /* MarqueeText */,
 				14ADCC16287D28EB00152965 /* Badges */,
 				14ADCC0A287D28EB00152965 /* Cells */,
 				14ADCC0F287D28EB00152965 /* Components */,
@@ -406,9 +420,11 @@
 				14ADCC25287D28EB00152965 /* SourceView.swift in Sources */,
 				14ADCC33287D28EB00152965 /* Track.swift in Sources */,
 				14ADCC30287D28EB00152965 /* SoundboardBadge.swift in Sources */,
+				147349E42928B09000E4397B /* MarqueeText.swift in Sources */,
 				14ADCC38287D28EB00152965 /* Show.swift in Sources */,
 				14ADCC27287D28EB00152965 /* YearCell.swift in Sources */,
 				147349DE29289E3B00E4397B /* BottomControlView.swift in Sources */,
+				147349E52928B09000E4397B /* SwiftUI+Extension.swift in Sources */,
 				14ADCC2B287D28EB00152965 /* ShowsScrollViewSection.swift in Sources */,
 				14ADCC2A287D28EB00152965 /* HorizontalScrollView.swift in Sources */,
 				14ADCC31287D28EB00152965 /* RemasterBadge.swift in Sources */,

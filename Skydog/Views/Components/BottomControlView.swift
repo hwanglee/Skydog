@@ -15,7 +15,14 @@ struct BottomControlView: View {
         HStack {
             Image(systemName: "square.fill")
                 .font(.system(size: imageSize + 10))
-            Text(player.currentTrack?.title ?? "")
+            MarqueeText(
+                text: player.currentTrack?.title ?? "",
+                font: UIFont.preferredFont(forTextStyle: .title3),
+                leftFade: 0,
+                rightFade: 0,
+                startDelay: 1.5
+            )
+                .lineLimit(1)
             
             Spacer()
             
