@@ -20,7 +20,16 @@ class SkydogTests: XCTestCase {
     
     func testPlayPause() {
         let audioPlayer = AudioPlayer()
-        audioPlayer.setTrack(track: "https://samplelib.com/lib/preview/mp3/sample-3s.mp3")
+        let track = Track(uuid: "test",
+                          url: "https://samplelib.com/lib/preview/mp3/sample-3s.mp3",
+                          title: "test",
+                          slug: "test",
+                          trackPosition: 0)
+        
+        audioPlayer.play()
+        XCTAssertFalse(audioPlayer.isPlaying)
+        
+        audioPlayer.setTrack(track: track)
         audioPlayer.play()
         
         XCTAssertTrue(audioPlayer.isPlaying)
