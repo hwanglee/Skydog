@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BottomControlView: View {
     let imageSize: CGFloat = 28
-    @State var isPlaying = false
+    @ObservedObject var player = AudioPlayer.instance
     
     var body: some View {
         HStack {
@@ -22,10 +22,14 @@ struct BottomControlView: View {
             Image(systemName: "backward.fill")
                 .font(.system(size: imageSize))
             
-            Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+            Image(systemName: player.isPlaying ? "pause.fill" : "play.fill")
                 .font(.system(size: imageSize))
                 .onTapGesture {
-                    isPlaying = !isPlaying
+                    if player.isPlaying {
+                        player.pause()
+                    } else {
+                        player.play()
+                    }
                 }
             
             Image(systemName: "forward.fill")

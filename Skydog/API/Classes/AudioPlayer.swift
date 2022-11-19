@@ -8,11 +8,11 @@
 import Foundation
 import AVKit
 
-class AudioPlayer {
+class AudioPlayer: ObservableObject {
     public static var instance = AudioPlayer()
     
+    @Published private(set) var isPlaying = false
     private(set) var player = AVPlayer()
-    private(set) var isPlaying = false
     
     init() {
         do {
@@ -38,11 +38,13 @@ class AudioPlayer {
     }
     
     func pause() {
+        print("pause audio player")
         player.pause()
         isPlaying = false
     }
     
     func play() {
+        print("play audio player")
         player.play()
         isPlaying = true
     }
