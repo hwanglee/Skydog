@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		147349DE29289E3B00E4397B /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147349DD29289E3B00E4397B /* BottomControlView.swift */; };
+		147349E02928ABA700E4397B /* DataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147349DF2928ABA700E4397B /* DataLoaderTests.swift */; };
 		14ADCBDC287D28A200152965 /* SkydogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCBDB287D28A200152965 /* SkydogApp.swift */; };
 		14ADCBE0287D28A300152965 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADCBDF287D28A300152965 /* Assets.xcassets */; };
 		14ADCBE3287D28A300152965 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADCBE2287D28A300152965 /* Preview Assets.xcassets */; };
@@ -60,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		147349DD29289E3B00E4397B /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
+		147349DF2928ABA700E4397B /* DataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderTests.swift; sourceTree = "<group>"; };
 		14ADCBD8287D28A200152965 /* Skydog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skydog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADCBDB287D28A200152965 /* SkydogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkydogApp.swift; sourceTree = "<group>"; };
 		14ADCBDF287D28A300152965 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				14ADCBEC287D28A300152965 /* SkydogTests.swift */,
+				147349DF2928ABA700E4397B /* DataLoaderTests.swift */,
 			);
 			path = SkydogTests;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				147349E02928ABA700E4397B /* DataLoaderTests.swift in Sources */,
 				14ADCBED287D28A300152965 /* SkydogTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
