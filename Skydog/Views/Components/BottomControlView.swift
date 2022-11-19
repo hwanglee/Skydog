@@ -22,7 +22,7 @@ struct BottomControlView: View {
                 rightFade: 0,
                 startDelay: 1.5
             )
-                .lineLimit(1)
+            .lineLimit(1)
             
             Spacer()
             
