@@ -12,7 +12,7 @@
 		14ADCBDC287D28A200152965 /* SkydogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCBDB287D28A200152965 /* SkydogApp.swift */; };
 		14ADCBE0287D28A300152965 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADCBDF287D28A300152965 /* Assets.xcassets */; };
 		14ADCBE3287D28A300152965 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADCBE2287D28A300152965 /* Preview Assets.xcassets */; };
-		14ADCBED287D28A300152965 /* SkydogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCBEC287D28A300152965 /* SkydogTests.swift */; };
+		14ADCBED287D28A300152965 /* AudioPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCBEC287D28A300152965 /* AudioPlayerTests.swift */; };
 		14ADCBF7287D28A300152965 /* SkydogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCBF6287D28A300152965 /* SkydogUITests.swift */; };
 		14ADCBF9287D28A300152965 /* SkydogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCBF8287D28A300152965 /* SkydogUITestsLaunchTests.swift */; };
 		14ADCC23287D28EB00152965 /* String+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC06287D28EB00152965 /* String+Color.swift */; };
@@ -67,7 +67,7 @@
 		14ADCBDF287D28A300152965 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14ADCBE2287D28A300152965 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		14ADCBE8287D28A300152965 /* SkydogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkydogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		14ADCBEC287D28A300152965 /* SkydogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkydogTests.swift; sourceTree = "<group>"; };
+		14ADCBEC287D28A300152965 /* AudioPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerTests.swift; sourceTree = "<group>"; };
 		14ADCBF2287D28A300152965 /* SkydogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkydogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADCBF6287D28A300152965 /* SkydogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkydogUITests.swift; sourceTree = "<group>"; };
 		14ADCBF8287D28A300152965 /* SkydogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkydogUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		14ADCBEB287D28A300152965 /* SkydogTests */ = {
 			isa = PBXGroup;
 			children = (
-				14ADCBEC287D28A300152965 /* SkydogTests.swift */,
+				14ADCBEC287D28A300152965 /* AudioPlayerTests.swift */,
 				147349DF2928ABA700E4397B /* DataLoaderTests.swift */,
 			);
 			path = SkydogTests;
@@ -436,7 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				147349E02928ABA700E4397B /* DataLoaderTests.swift in Sources */,
-				14ADCBED287D28A300152965 /* SkydogTests.swift in Sources */,
+				14ADCBED287D28A300152965 /* AudioPlayerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
