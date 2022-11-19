@@ -146,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				14ADCC3D287E794000152965 /* Info.plist */,
+				14ADCC3A287E734900152965 /* Classes */,
 				14ADCC19287D28EB00152965 /* API */,
 				14ADCC05287D28EB00152965 /* Extensions */,
 				14ADCC07287D28EB00152965 /* Views */,
@@ -239,7 +240,6 @@
 		14ADCC19287D28EB00152965 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				14ADCC3A287E734900152965 /* Classes */,
 				14ADCC1A287D28EB00152965 /* Models */,
 				14ADCC22287D28EB00152965 /* DataLoader.swift */,
 			);
