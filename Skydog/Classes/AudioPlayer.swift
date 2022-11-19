@@ -32,6 +32,8 @@ class AudioPlayer: ObservableObject {
     func setTrack(track: Track) {
         guard let trackURL = track.url, let url = URL(string: trackURL) else { return }
         
+        print("update track: \(track.title)")
+        
         currentTrack = track
         
         let playerItem = AVPlayerItem(url: url)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Track: Codable {
+struct Track: Codable, Equatable {
     var uuid: String
     var url: String?
     var title: String
