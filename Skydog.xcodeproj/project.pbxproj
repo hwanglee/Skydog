@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		147349DE29289E3B00E4397B /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147349DD29289E3B00E4397B /* BottomControlView.swift */; };
 		14ADCBDC287D28A200152965 /* SkydogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCBDB287D28A200152965 /* SkydogApp.swift */; };
 		14ADCBE0287D28A300152965 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADCBDF287D28A300152965 /* Assets.xcassets */; };
 		14ADCBE3287D28A300152965 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADCBE2287D28A300152965 /* Preview Assets.xcassets */; };
@@ -36,8 +37,8 @@
 		14ADCC37287D28EB00152965 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC20287D28EB00152965 /* Artist.swift */; };
 		14ADCC38287D28EB00152965 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC21287D28EB00152965 /* Show.swift */; };
 		14ADCC39287D28EB00152965 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC22287D28EB00152965 /* DataLoader.swift */; };
-		14E585D02884D3FB00398AA9 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E585CF2884D3FB00398AA9 /* UIImage+Color.swift */; };
 		14ADCC3C287E737600152965 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC3B287E737600152965 /* AudioPlayer.swift */; };
+		14E585D02884D3FB00398AA9 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E585CF2884D3FB00398AA9 /* UIImage+Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		147349DD29289E3B00E4397B /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		14ADCBD8287D28A200152965 /* Skydog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skydog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADCBDB287D28A200152965 /* SkydogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkydogApp.swift; sourceTree = "<group>"; };
 		14ADCBDF287D28A300152965 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,9 +92,9 @@
 		14ADCC20287D28EB00152965 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		14ADCC21287D28EB00152965 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		14ADCC22287D28EB00152965 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
-		14E585CF2884D3FB00398AA9 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		14ADCC3B287E737600152965 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		14ADCC3D287E794000152965 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		14E585CF2884D3FB00398AA9 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 				14ADCC10287D28EB00152965 /* HorizontalScrollView.swift */,
 				14ADCC11287D28EB00152965 /* ShowsScrollViewSection.swift */,
 				14ADCC12287D28EB00152965 /* ScrollViewHeader.swift */,
+				147349DD29289E3B00E4397B /* BottomControlView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				14ADCC30287D28EB00152965 /* SoundboardBadge.swift in Sources */,
 				14ADCC38287D28EB00152965 /* Show.swift in Sources */,
 				14ADCC27287D28EB00152965 /* YearCell.swift in Sources */,
+				147349DE29289E3B00E4397B /* BottomControlView.swift in Sources */,
 				14ADCC2B287D28EB00152965 /* ShowsScrollViewSection.swift in Sources */,
 				14ADCC2A287D28EB00152965 /* HorizontalScrollView.swift in Sources */,
 				14ADCC31287D28EB00152965 /* RemasterBadge.swift in Sources */,
