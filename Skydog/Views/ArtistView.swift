@@ -47,34 +47,34 @@ struct ArtistView: View {
                 .buttonStyle(.plain)
             }
         }
-        .onAppear(perform: loadData)
+        .task {
+            await loadData()
+        }
         .navigationTitle(artist.name)
     }
     
-    private func loadData() {
-        Task.init {
-            do {
-                async let shows = DataLoader.shared.fetchShows(artistSlug: artist.slug)
-                async let recentShows = DataLoader.shared.fetchRecentShows(artistSlug: artist.slug)
-                async let years = DataLoader.shared.fetchYears(artistSlug: artist.slug)
-                
-                self.topShows = try await shows
-                self.recentShows = try await recentShows
-                self.years = try await years.sorted { $0.year > $1.year }
-            } catch DecodingError.dataCorrupted(let context) {
-                print(context)
-            } catch DecodingError.keyNotFound(let key, let context) {
-                print("Key '\(key)' not found:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-            } catch DecodingError.valueNotFound(let value, let context) {
-                print("Value '\(value)' not found:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-            } catch DecodingError.typeMismatch(let type, let context) {
-                print("Type '\(type)' mismatch:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-            } catch {
-                print("error: ", error)
-            }
+    private func loadData() async {
+        do {
+            async let shows = DataLoader.shared.fetchShows(artistSlug: artist.slug)
+            async let recentShows = DataLoader.shared.fetchRecentShows(artistSlug: artist.slug)
+            async let years = DataLoader.shared.fetchYears(artistSlug: artist.slug)
+            
+            self.topShows = try await shows
+            self.recentShows = try await recentShows
+            self.years = try await years.sorted { $0.year > $1.year }
+        } catch DecodingError.dataCorrupted(let context) {
+            print(context)
+        } catch DecodingError.keyNotFound(let key, let context) {
+            print("Key '\(key)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch DecodingError.valueNotFound(let value, let context) {
+            print("Value '\(value)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch DecodingError.typeMismatch(let type, let context) {
+            print("Type '\(type)' mismatch:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch {
+            print("error: ", error)
         }
     }
 }

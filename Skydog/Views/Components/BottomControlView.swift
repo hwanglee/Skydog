@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BottomControlView: View {
     let imageSize: CGFloat = 24
-    @ObservedObject var player = AudioPlayer.instance
+    @EnvironmentObject var player: AudioPlayer
     
     var body: some View {
         HStack {
@@ -63,6 +63,6 @@ struct BottomControlView: View {
 
 struct BottomControlView_Previews: PreviewProvider {
     static var previews: some View {
-        BottomControlView()
+        BottomControlView().environmentObject(AudioPlayer())
     }
 }

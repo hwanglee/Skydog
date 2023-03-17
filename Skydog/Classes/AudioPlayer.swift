@@ -9,8 +9,6 @@ import Foundation
 import AVKit
 
 class AudioPlayer: ObservableObject {
-    public static var instance = AudioPlayer()
-    
     @Published private(set) var isPlaying = false
     @Published private(set) var currentTrack: Track? = nil
     private(set) var player = AVPlayer()

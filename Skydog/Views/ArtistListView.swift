@@ -35,17 +35,17 @@ struct ArtistListView: View {
             .searchable(text: $searchText)
             .navigationTitle("Artists")
             .disableAutocorrection(true)
-        }.onAppear(perform: loadData)
+        }.task {
+            await loadData()
+        }
     }
     
-    private func loadData() {
-        Task.init {
-            do {
-                let artists = try await DataLoader.shared.fetchArtists()
-                self.artists = artists
-            } catch {
-                print(error.localizedDescription)
-            }
+    private func loadData() async {
+        do {
+            let artists = try await DataLoader.shared.fetchArtists()
+            self.artists = artists
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }

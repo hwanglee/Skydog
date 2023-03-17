@@ -14,15 +14,15 @@ struct YearView: View {
     var body: some View {
         ShowsListView(shows: shows)
             .navigationTitle(year.year)
-            .onAppear(perform: loadData)
+            .task {
+                try? await loadData()
+            }
     }
     
-    private func loadData() {
-        Task.init {
-            async let years = DataLoader.shared.fetchShows(artistSlug: year.artistUuid, year: year.year)
-            self.shows = try await years
-            print(self.shows)
-        }
+    private func loadData() async throws {
+        async let years = DataLoader.shared.fetchShows(artistSlug: year.artistUuid, year: year.year)
+        self.shows = try await years
+        print(self.shows)
     }
 }
 

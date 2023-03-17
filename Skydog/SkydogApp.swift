@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct SkydogApp: App {
+    let audioPlayer = AudioPlayer()
+    
     var body: some Scene {
         WindowGroup {
-            ArtistListView()
-            BottomControlView()
+            ArtistListView().environmentObject(audioPlayer)
+            BottomControlView().environmentObject(audioPlayer)
         }
     }
 }
