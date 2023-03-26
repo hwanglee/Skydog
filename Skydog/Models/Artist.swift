@@ -13,3 +13,9 @@ struct Artist: Decodable {
     var uuid: String
     var musicbrainzId: String
 }
+
+extension Artist {
+    static var example: Artist {
+        return .init(name: "Herbie Hancock", slug: "herbie-hancock", uuid: "uuid", musicbrainzId: "0")
+    }
+}

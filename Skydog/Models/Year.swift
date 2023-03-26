@@ -14,3 +14,9 @@ struct Year: Decodable {
     var artistId: Int
     var artistUuid: String
 }
+
+extension Year {
+    static var example: Year {
+        return .init(id: 0, year: "2023", uuid: "uuid", artistId: 1, artistUuid: "test")
+    }
+}

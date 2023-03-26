@@ -11,6 +11,7 @@ import AVKit
 class AudioPlayer: ObservableObject {
     @Published private(set) var isPlaying = false
     @Published private(set) var currentTrack: Track? = nil
+    let session = AVAudioSession.sharedInstance()
     private(set) var player = AVPlayer()
     
     init() {
@@ -54,5 +55,16 @@ class AudioPlayer: ObservableObject {
         print("play audio player")
         player.play()
         isPlaying = true
+    }
+    
+    func toggle() {
+        guard currentTrack != nil else { return }
+        
+        isPlaying.toggle()
+        if isPlaying {
+            play()
+        } else {
+            pause()
+        }
     }
 }

@@ -28,8 +28,8 @@ struct ShowsListView: View {
     }
 }
 
-//struct ShowsListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ShowsListView()
-//    }
-//}
+struct ShowsListView_Previews: PreviewProvider {
+    static var previews: some View {
+        ShowsListView(shows: [.example])
+    }
+}

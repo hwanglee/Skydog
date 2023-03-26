@@ -54,7 +54,6 @@ struct SourceView: View {
     }
     
     private func loadData() async {
-        
         do {
             async let sources = DataLoader.shared.fetchSources(showUUID: show.uuid)
             
@@ -79,8 +78,8 @@ struct SourceView: View {
     }
 }
 
-//struct SourceView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SourceView()
-//    }
-//}
+struct SourceView_Previews: PreviewProvider {
+    static var previews: some View {
+        SourceView(show: .example)
+    }
+}

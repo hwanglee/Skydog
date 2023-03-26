@@ -14,3 +14,9 @@ struct Venue: Decodable {
     var uuid: String
     var sortName: String
 }
+
+extension Venue {
+    static var example: Venue {
+        return .init(id: 0, name: "Warner Theater", slug: "warner-theater", uuid: "uuid", sortName: "Warner Theater")
+    }
+}

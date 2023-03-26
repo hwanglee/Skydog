@@ -23,3 +23,9 @@ struct Show: Decodable {
         return image ?? UIImage()
     }
 }
+
+extension Show {
+    static var example: Show {
+        return Show(id: 0, displayDate: "12/22/2022", venue: .example, avgRating: 9.0, uuid: "test")
+    }
+}

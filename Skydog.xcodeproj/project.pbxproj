@@ -11,6 +11,9 @@
 		147349E02928ABA700E4397B /* DataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147349DF2928ABA700E4397B /* DataLoaderTests.swift */; };
 		147349E42928B09000E4397B /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147349E22928B09000E4397B /* MarqueeText.swift */; };
 		147349E52928B09000E4397B /* SwiftUI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147349E32928B09000E4397B /* SwiftUI+Extension.swift */; };
+		149AEB6E29CFFC4B007BF3D3 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AEB6D29CFFC4B007BF3D3 /* PlayerView.swift */; };
+		149AEB7129CFFC71007BF3D3 /* LNPopupUI in Frameworks */ = {isa = PBXBuildFile; productRef = 149AEB7029CFFC71007BF3D3 /* LNPopupUI */; };
+		149AEB7329CFFCC9007BF3D3 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AEB7229CFFCC9007BF3D3 /* BaseView.swift */; };
 		14ADCBDC287D28A200152965 /* SkydogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCBDB287D28A200152965 /* SkydogApp.swift */; };
 		14ADCBE0287D28A300152965 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADCBDF287D28A300152965 /* Assets.xcassets */; };
 		14ADCBE3287D28A300152965 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADCBE2287D28A300152965 /* Preview Assets.xcassets */; };
@@ -41,6 +44,8 @@
 		14ADCC38287D28EB00152965 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC21287D28EB00152965 /* Show.swift */; };
 		14ADCC39287D28EB00152965 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC22287D28EB00152965 /* DataLoader.swift */; };
 		14ADCC3C287E737600152965 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADCC3B287E737600152965 /* AudioPlayer.swift */; };
+		14BD4E0129C42E5900113DED /* SourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD4E0029C42E5900113DED /* SourceViewModel.swift */; };
+		14BD4E0329C42F0E00113DED /* ShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD4E0229C42F0E00113DED /* ShowViewModel.swift */; };
 		14E585D02884D3FB00398AA9 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E585CF2884D3FB00398AA9 /* UIImage+Color.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +71,8 @@
 		147349DF2928ABA700E4397B /* DataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderTests.swift; sourceTree = "<group>"; };
 		147349E22928B09000E4397B /* MarqueeText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
 		147349E32928B09000E4397B /* SwiftUI+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Extension.swift"; sourceTree = "<group>"; };
+		149AEB6D29CFFC4B007BF3D3 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		149AEB7229CFFCC9007BF3D3 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		14ADCBD8287D28A200152965 /* Skydog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skydog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADCBDB287D28A200152965 /* SkydogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkydogApp.swift; sourceTree = "<group>"; };
 		14ADCBDF287D28A300152965 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +107,8 @@
 		14ADCC22287D28EB00152965 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		14ADCC3B287E737600152965 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		14ADCC3D287E794000152965 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		14BD4E0029C42E5900113DED /* SourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceViewModel.swift; sourceTree = "<group>"; };
+		14BD4E0229C42F0E00113DED /* ShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewModel.swift; sourceTree = "<group>"; };
 		14E585CF2884D3FB00398AA9 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				149AEB7129CFFC71007BF3D3 /* LNPopupUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +147,14 @@
 			path = MarqueeText;
 			sourceTree = "<group>";
 		};
+		149AEB7429CFFF41007BF3D3 /* PlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				149AEB6D29CFFC4B007BF3D3 /* PlayerView.swift */,
+			);
+			path = PlayerView;
+			sourceTree = "<group>";
+		};
 		14ADCBCF287D28A200152965 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +180,8 @@
 			children = (
 				14ADCC3D287E794000152965 /* Info.plist */,
 				14ADCC3A287E734900152965 /* Classes */,
+				14BD4DFF29C42E2C00113DED /* View Models */,
+				14ADCC1A287D28EB00152965 /* Models */,
 				14ADCC19287D28EB00152965 /* API */,
 				14ADCC05287D28EB00152965 /* Extensions */,
 				14ADCC07287D28EB00152965 /* Views */,
@@ -221,6 +241,7 @@
 				14ADCC13287D28EB00152965 /* YearView.swift */,
 				14ADCC14287D28EB00152965 /* ArtistView.swift */,
 				14ADCC15287D28EB00152965 /* ShowsListView.swift */,
+				149AEB7229CFFCC9007BF3D3 /* BaseView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -237,6 +258,7 @@
 		14ADCC0F287D28EB00152965 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				149AEB7429CFFF41007BF3D3 /* PlayerView */,
 				14ADCC10287D28EB00152965 /* HorizontalScrollView.swift */,
 				14ADCC11287D28EB00152965 /* ShowsScrollViewSection.swift */,
 				14ADCC12287D28EB00152965 /* ScrollViewHeader.swift */,
@@ -257,7 +279,6 @@
 		14ADCC19287D28EB00152965 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				14ADCC1A287D28EB00152965 /* Models */,
 				14ADCC22287D28EB00152965 /* DataLoader.swift */,
 			);
 			path = API;
@@ -285,6 +306,15 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		14BD4DFF29C42E2C00113DED /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				14BD4E0029C42E5900113DED /* SourceViewModel.swift */,
+				14BD4E0229C42F0E00113DED /* ShowViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -301,6 +331,9 @@
 			dependencies = (
 			);
 			name = Skydog;
+			packageProductDependencies = (
+				149AEB7029CFFC71007BF3D3 /* LNPopupUI */,
+			);
 			productName = Skydog;
 			productReference = 14ADCBD8287D28A200152965 /* Skydog.app */;
 			productType = "com.apple.product-type.application";
@@ -373,6 +406,9 @@
 				Base,
 			);
 			mainGroup = 14ADCBCF287D28A200152965;
+			packageReferences = (
+				149AEB6F29CFFC71007BF3D3 /* XCRemoteSwiftPackageReference "LNPopupUI" */,
+			);
 			productRefGroup = 14ADCBD9287D28A200152965 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -422,7 +458,9 @@
 				14ADCC30287D28EB00152965 /* SoundboardBadge.swift in Sources */,
 				147349E42928B09000E4397B /* MarqueeText.swift in Sources */,
 				14ADCC38287D28EB00152965 /* Show.swift in Sources */,
+				14BD4E0129C42E5900113DED /* SourceViewModel.swift in Sources */,
 				14ADCC27287D28EB00152965 /* YearCell.swift in Sources */,
+				149AEB7329CFFCC9007BF3D3 /* BaseView.swift in Sources */,
 				147349DE29289E3B00E4397B /* BottomControlView.swift in Sources */,
 				147349E52928B09000E4397B /* SwiftUI+Extension.swift in Sources */,
 				14ADCC2B287D28EB00152965 /* ShowsScrollViewSection.swift in Sources */,
@@ -433,6 +471,7 @@
 				14E585D02884D3FB00398AA9 /* UIImage+Color.swift in Sources */,
 				14ADCC3C287E737600152965 /* AudioPlayer.swift in Sources */,
 				14ADCC2F287D28EB00152965 /* ShowsListView.swift in Sources */,
+				149AEB6E29CFFC4B007BF3D3 /* PlayerView.swift in Sources */,
 				14ADCC37287D28EB00152965 /* Artist.swift in Sources */,
 				14ADCC35287D28EB00152965 /* Year.swift in Sources */,
 				14ADCC29287D28EB00152965 /* SourcePickerView.swift in Sources */,
@@ -444,6 +483,7 @@
 				14ADCC28287D28EB00152965 /* YearListView.swift in Sources */,
 				14ADCC23287D28EB00152965 /* String+Color.swift in Sources */,
 				14ADCC26287D28EB00152965 /* AlbumCell.swift in Sources */,
+				14BD4E0329C42F0E00113DED /* ShowViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +811,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		149AEB6F29CFFC71007BF3D3 /* XCRemoteSwiftPackageReference "LNPopupUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LeoNatan/LNPopupUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		149AEB7029CFFC71007BF3D3 /* LNPopupUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 149AEB6F29CFFC71007BF3D3 /* XCRemoteSwiftPackageReference "LNPopupUI" */;
+			productName = LNPopupUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 14ADCBD0287D28A200152965 /* Project object */;
 }

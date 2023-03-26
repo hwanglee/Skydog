@@ -26,8 +26,8 @@ struct YearView: View {
     }
 }
 
-//struct YearView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        YearView()
-//    }
-//}
+struct YearView_Previews: PreviewProvider {
+    static var previews: some View {
+        YearView(year: .example)
+    }
+}

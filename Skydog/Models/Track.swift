@@ -24,3 +24,9 @@ struct Track: Codable, Equatable {
         case trackPosition
     }
 }
+
+extension Track {
+    static var example: Track {
+        return .init(uuid: "uuid", title: "Test", slug: "test", trackPosition: 0)
+    }
+}
