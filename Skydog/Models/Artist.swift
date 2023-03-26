@@ -12,10 +12,11 @@ struct Artist: Decodable {
     var slug: String
     var uuid: String
     var musicbrainzId: String
+    var showCount: Int
 }
 
 extension Artist {
     static var example: Artist {
-        return .init(name: "Herbie Hancock", slug: "herbie-hancock", uuid: "uuid", musicbrainzId: "0")
+        return .init(name: "Herbie Hancock", slug: "herbie-hancock", uuid: "uuid", musicbrainzId: "0", showCount: 12)
     }
 }

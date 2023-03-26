@@ -12,7 +12,6 @@ struct VolumeSliderView: View {
     @State private var test = 0.0
     
     var body: some View {
-        let _ = print(volObserver.volume)
         VolumeSlider(
             value: $volObserver.volume,
             inRange: 0...1,

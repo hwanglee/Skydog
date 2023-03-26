@@ -10,6 +10,7 @@ import SwiftUI
 struct ArtistList: View {
     @State var artists = [Artist]()
     @State private var searchText = ""
+    @State private var isLoading = false
     
     var searchResults: [Artist] {
         if searchText.isEmpty {
@@ -21,18 +22,24 @@ struct ArtistList: View {
     
     var body: some View {
         NavigationView {
-            List(searchResults, id: \.slug) { item in
-                NavigationLink {
-                    ArtistView(artist: item)
-                } label: {
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text(item.name)
-                        Text(item.slug).font(.subheadline).foregroundColor(.gray)
+            Group {
+                if isLoading {
+                    ProgressView()
+                } else {
+                    List(searchResults, id: \.slug) { item in
+                        NavigationLink {
+                            ArtistView(artist: item)
+                        } label: {
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text(item.name)
+                                Text("\(item.showCount) Shows").font(.subheadline).foregroundColor(.gray)
+                            }
+                        }
                     }
+                    .listStyle(.inset)
+                    .searchable(text: $searchText)
                 }
             }
-            .listStyle(.inset)
-            .searchable(text: $searchText)
             .navigationTitle("Artists")
             .disableAutocorrection(true)
         }.task {
@@ -41,11 +48,15 @@ struct ArtistList: View {
     }
     
     private func loadData() async {
+        isLoading = true
+        
         do {
             let artists = try await DataLoader.shared.fetchArtists()
             self.artists = artists
+            isLoading = false
         } catch {
             print(error.localizedDescription)
+            isLoading = false
         }
     }
 }
