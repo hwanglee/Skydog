@@ -7,16 +7,38 @@
 
 import SwiftUI
 import LNPopupUI
+import Combine
 
 struct BaseView: View {
-    @State var isPopupBarPresented = true
+    @EnvironmentObject var player: AudioPlayer
+    @State var isPopupBarPresented  = false
     @State var isPopupOpen = false
     
     var body: some View {
-        ArtistListView()
-            .popup(isBarPresented: $isPopupBarPresented, isPopupOpen: $isPopupOpen) {
-                PlayerView()
-            }
+        TabView {
+            ArtistList()
+                .tabItem {
+                    Text("Artists")
+                    Image(systemName: "person.fill")
+                }
+            
+            ArtistList()
+                .tabItem {
+                    Text("Library")
+                    Image(systemName: "square.stack.fill")
+                }
+        }
+        // https://stackoverflow.com/a/70867370/21492313
+        .onAppear {
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithDefaultBackground()
+            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+        }
+        .tint(.white)
+        .popup(isBarPresented: $player.hasTrack, isPopupOpen: $isPopupOpen) {
+            PlayerView()
+        }
+        .popupBarMarqueeScrollEnabled(true)
     }
 }
 

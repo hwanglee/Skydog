@@ -8,7 +8,6 @@
 import SwiftUI
 import LNPopupUI
 import LNPopupController
-import Combine
 
 struct BlurView: UIViewRepresentable {
     var style: UIBlurEffect.Style = .systemMaterial
@@ -22,14 +21,14 @@ struct BlurView: UIViewRepresentable {
 
 struct PlayerView: View {
     @State var playbackProgress: Float = Float.random(in: 0..<1)
-    @State var volume: Float = Float.random(in: 0..<1)
     @EnvironmentObject var player: AudioPlayer
     private let screenHeight = UIScreen.main.bounds.height
+    @State var background = Int.random(in: 0...5)
     
     var body: some View {
         GeometryReader { geometry in
             return VStack {
-                Image("Backgrounds/0")
+                Image("\(background)")
                     .resizable()
                     .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                     .aspectRatio(contentMode: .fit)
@@ -53,47 +52,9 @@ struct PlayerView: View {
                     }
                     ProgressView(value: playbackProgress)
                         .padding([.bottom], geometry.size.height * 30.0 / screenHeight)
-                    HStack {
-                        Button(action: {}, label: {
-                            Image(systemName: "backward.fill")
-                        })
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        Button(action: {
-                            player.toggle()
-                        }, label: {
-                            Image(systemName: player.isPlaying ? "pause.fill" : "play.fill")
-                        })
-                        .font(.system(size: 50, weight: .bold))
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50, maxHeight: 50)
-                        Button(action: {}, label: {
-                            Image(systemName: "forward.fill")
-                        })
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                    }
-                    .font(.system(size: 30, weight: .regular))
-                    .padding([.bottom], geometry.size.height * 20.0 / screenHeight)
-                    HStack {
-                        Image(systemName: "speaker.fill")
-                        Slider(value: $volume)
-                        Image(systemName: "speaker.wave.2.fill")
-                    }
-                    .font(.footnote)
-                    .foregroundColor(.gray)
-                    HStack {
-                        Button(action: {}, label: {
-                            Image(systemName: "shuffle")
-                        })
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        Button(action: {}, label: {
-                            Image(systemName: "airplayaudio")
-                        })
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        Button(action: {}, label: {
-                            Image(systemName: "repeat")
-                        })
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                    }
-                    .font(.body)
+                    PlayerControls()
+                    VolumeSliderView()
+                    BottomButtons()
                 }
                 .padding(geometry.size.height * 40.0 / UIScreen.main.bounds.height)
             }
@@ -104,38 +65,18 @@ struct PlayerView: View {
                    alignment: .top)
             .background({
                 ZStack {
-                    Image("Backgrounds/0")
-                        .resizable()
+                    Image("\(background)").resizable()
                     BlurView()
                 }
                 .edgesIgnoringSafeArea(.all)
+                .allowsHitTesting(false)
             }())
         }
         .tint(.white)
         .popupTitle(player.currentTrack?.title ?? "")
-        .popupImage(Image("Backgrounds/0").resizable())
-        .popupProgress(playbackProgress)
+        .popupImage(Image("\(background)").resizable())
         .popupBarItems({
-            Group {
-                Button(action: {
-                    print("Previous")
-                }) {
-                    Image(systemName: "backward.fill")
-                }
-                
-                Button(action: {
-                    player.toggle()
-                }) {
-                    Image(systemName: player.isPlaying ? "pause.fill" : "play.fill")
-                }
-                
-                Button(action: {
-                    print("Next")
-                }) {
-                    Image(systemName: "forward.fill")
-                }
-            }
-            .tint(.white)
+            MinimizedPlayerView()
         })
     }
 }

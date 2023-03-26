@@ -18,7 +18,7 @@ struct Show: Decodable {
     var albumArt: UIImage {
         print(uuid)
         let imageIndex = (venue?.name.count ?? 0) % 18
-        let image = UIImage(named: "Backgrounds/\(imageIndex)")
+        let image = UIImage(named: "\(imageIndex)")
         
         return image ?? UIImage()
     }

@@ -44,7 +44,7 @@ struct SourceView: View {
             }
         }
         .sheet(isPresented: $showingSheet) {
-            SourcePickerView(sources: sources, selectedSource: $selectedSource)
+            SourcePicker(sources: sources, selectedSource: $selectedSource)
         }
         .navigationTitle(show.displayDate)
         .listStyle(.inset)

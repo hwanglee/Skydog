@@ -29,7 +29,7 @@ struct ShowsScrollViewSection: View {
             }
         } header: {
             NavigationLink {
-                ShowsListView(shows: shows)
+                ShowsList(shows: shows)
                     .navigationTitle(title)
             } label: {
                 ScrollViewHeader(title: title)

@@ -40,7 +40,7 @@ struct ArtistView: View {
                 }
             } header: {
                 NavigationLink {
-                    YearListView(years: years)
+                    YearList(years: years)
                 } label: {
                     ScrollViewHeader(title: "Years")
                 }

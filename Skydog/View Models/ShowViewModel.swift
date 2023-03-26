@@ -17,7 +17,7 @@ class ShowViewModel {
     
     var albumArt: UIImage {
         let imageIndex = (show.venue?.name.count ?? 0) % 18
-        let image = UIImage(named: "Backgrounds/\(imageIndex)")
+        let image = UIImage(named: "\(imageIndex)")
         
         return image ?? UIImage()
     }
