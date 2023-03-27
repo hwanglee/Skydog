@@ -14,14 +14,6 @@ struct Show: Decodable {
     var venue: Venue?
     var avgRating: Float
     var uuid: String
-    
-    var albumArt: UIImage {
-        print(uuid)
-        let imageIndex = (venue?.name.count ?? 0) % 18
-        let image = UIImage(named: "\(imageIndex)")
-        
-        return image ?? UIImage()
-    }
 }
 
 extension Show {

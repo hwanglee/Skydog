@@ -8,61 +8,32 @@
 import SwiftUI
 
 struct ArtistList: View {
-    @State var artists = [Artist]()
-    @State private var searchText = ""
-    @State private var isLoading = false
-    
-    var searchResults: [Artist] {
-        if searchText.isEmpty {
-            return artists
-        } else {
-            return artists.filter { $0.name.contains(searchText) }
-        }
-    }
+    @StateObject var viewModel: ArtistListViewModel
     
     var body: some View {
         NavigationView {
-            Group {
-                if isLoading {
-                    ProgressView()
-                } else {
-                    List(searchResults, id: \.slug) { item in
-                        NavigationLink {
-                            ArtistView(artist: item)
-                        } label: {
-                            VStack(alignment: .leading, spacing: 5) {
-                                Text(item.name)
-                                Text("\(item.showCount) Shows").font(.subheadline).foregroundColor(.gray)
-                            }
+            AsyncContentView(source: viewModel) { _ in
+                List(viewModel.filteredArtists, id: \.slug) { item in
+                    NavigationLink {
+                        ArtistView(artist: item)
+                    } label: {
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(item.name)
+                            Text("\(item.showCount) Shows").font(.subheadline).foregroundColor(.gray)
                         }
                     }
-                    .listStyle(.inset)
-                    .searchable(text: $searchText)
                 }
+                .listStyle(.inset)
+                .searchable(text: $viewModel.searchQuery)
             }
             .navigationTitle("Artists")
             .disableAutocorrection(true)
-        }.task {
-            await loadData()
-        }
-    }
-    
-    private func loadData() async {
-        isLoading = true
-        
-        do {
-            let artists = try await DataLoader.shared.fetchArtists()
-            self.artists = artists
-            isLoading = false
-        } catch {
-            print(error.localizedDescription)
-            isLoading = false
         }
     }
 }
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        ArtistList()
+        ArtistList(viewModel: .init())
     }
 }

@@ -12,7 +12,7 @@ struct YearView: View {
     @State private var shows = [Show]()
     
     var body: some View {
-        ShowsList(shows: shows)
+        ShowsList(shows: shows.map { .init(show: $0) })
             .navigationTitle(year.year)
             .task {
                 try? await loadData()

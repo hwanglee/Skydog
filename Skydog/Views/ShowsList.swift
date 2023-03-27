@@ -8,28 +8,26 @@
 import SwiftUI
 
 struct ShowsList: View {
-    var shows: [Show]
+    var shows: [ShowListItemViewModel]
     
     var body: some View {
-        List(shows, id: \.id) { item in
+        List(shows, id: \.show.id) { item in
             NavigationLink {
-                SourceView(show: item)
+                SourceView(viewModel: .init(showUUID: item.show.uuid))
+                    .navigationTitle(item.date)
             } label: {
                 VStack(alignment: .leading, spacing: 5) {
-                    Text(item.venue?.name ?? "")
-                    Text(item.displayDate).font(.subheadline).foregroundColor(.gray)
+                    Text(item.venueName)
+                    Text(item.date).font(.subheadline).foregroundColor(.gray)
                 }
             }
         }
         .listStyle(.inset)
-        .onAppear {
-            print(shows)
-        }
     }
 }
 
 struct ShowsListView_Previews: PreviewProvider {
     static var previews: some View {
-        ShowsList(shows: [.example])
+        ShowsList(shows: [.init(show: .example)])
     }
 }

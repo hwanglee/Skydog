@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct ShowsScrollViewSection: View {
-    var shows: [Show] = []
+    var shows: [ShowListItemViewModel] = []
     var title: String
     
     var body: some View {
         Section {
             HorizontalScrollView {
-                ForEach(shows.prefix(10), id: \.id) { item in
+                ForEach(shows.prefix(10), id: \.show.id) { item in
                     NavigationLink {
-                        SourceView(show: item)
+                        SourceView(viewModel: .init(showUUID: item.show.uuid))
+                            .navigationTitle(item.date)
                     } label: {
                         AlbumCell(
-                            venue: item.venue?.name ?? "",
-                            date: item.displayDate,
+                            venue: item.venueName,
+                            date: item.date,
                             image: item.albumArt
                         )
                     }
-                    .buttonStyle(.plain)
                 }
             }
         } header: {
@@ -41,6 +41,6 @@ struct ShowsScrollViewSection: View {
 
 struct ShowsScrollViewSection_Previews: PreviewProvider {
     static var previews: some View {
-        ShowsScrollViewSection(shows: [], title: "test")
+        ShowsScrollViewSection(shows: [.init(show: .example)], title: "test")
     }
 }

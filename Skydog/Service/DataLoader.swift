@@ -48,13 +48,13 @@ class DataLoader {
     }
     
     /**
-     Fetches a list of all shows for a given artist from the API.
+     Fetches a list of top shows for a given artist from the API.
      
      - Parameter artistSlug: The slug of the artist to fetch shows for.
      - Returns: An array of `Show` objects.
      - Throws: An error of type `DataLoaderError` if the URL is invalid or the data can't be decoded.
      */
-    func fetchShows(artistSlug: String) async throws -> [Show] {
+    func fetchTopShows(artistSlug: String) async throws -> [Show] {
         guard let url = baseURL?.appendingPathComponent("v2/artists/\(artistSlug)/shows/top") else {
             throw DataLoaderError.invalidURL
         }

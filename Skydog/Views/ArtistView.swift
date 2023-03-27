@@ -19,11 +19,11 @@ struct ArtistView: View {
         ScrollView(.vertical) {
             Spacer(minLength: sectionSpacing)
             
-            ShowsScrollViewSection(shows: topShows, title: "Top Shows")
+            ShowsScrollViewSection(shows: topShows.map { .init(show: $0) }, title: "Top Shows")
             
             Spacer(minLength: sectionSpacing)
             
-            ShowsScrollViewSection(shows: recentShows, title: "Recent Shows")
+            ShowsScrollViewSection(shows: recentShows.map { .init(show: $0) }, title: "Recent Shows")
             
             Spacer(minLength: sectionSpacing)
             
@@ -55,7 +55,7 @@ struct ArtistView: View {
     
     private func loadData() async {
         do {
-            async let shows = DataLoader.shared.fetchShows(artistSlug: artist.slug)
+            async let shows = DataLoader.shared.fetchTopShows(artistSlug: artist.slug)
             async let recentShows = DataLoader.shared.fetchRecentShows(artistSlug: artist.slug)
             async let years = DataLoader.shared.fetchYears(artistSlug: artist.slug)
             

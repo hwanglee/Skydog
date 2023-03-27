@@ -1,5 +1,5 @@
 //
-//  ShowViewModel.swift
+//  ShowListItemViewModel.swift
 //  Skydog
 //
 //  Created by Hwang Lee on 3/17/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit.UIImage
 
-class ShowViewModel {
+class ShowListItemViewModel {
     var show: Show
     
     init(show: Show) {
@@ -29,6 +29,8 @@ class ShowViewModel {
         
         guard let date = date else { return show.displayDate }
         
-        return date.formatted(date: .long, time: .omitted)
+        return date.formatted(date: .numeric, time: .omitted)
     }
+    
+    var venueName: String { show.venue?.name ?? "" }
 }

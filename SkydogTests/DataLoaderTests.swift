@@ -32,7 +32,7 @@ final class DataLoaderTests: XCTestCase {
     }
     
     func testFetchShows() async {
-        let shows = (try? await DataLoader.shared.fetchShows(artistSlug: artistSlug)) ?? []
+        let shows = (try? await DataLoader.shared.fetchTopShows(artistSlug: artistSlug)) ?? []
         
         XCTAssertTrue(!shows.isEmpty)
     }

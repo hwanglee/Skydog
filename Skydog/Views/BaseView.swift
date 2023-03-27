@@ -16,13 +16,13 @@ struct BaseView: View {
     
     var body: some View {
         TabView {
-            ArtistList()
+            ArtistList(viewModel: .init())
                 .tabItem {
                     Text("Artists")
                     Image(systemName: "person.fill")
                 }
             
-            ArtistList()
+            ArtistList(viewModel: .init())
                 .tabItem {
                     Text("Library")
                     Image(systemName: "square.stack.fill")

@@ -29,19 +29,14 @@ struct AlbumCell: View, Equatable {
                     alignment: .topLeading
                 )
                 .cornerRadius(8)
-            HStack {
-                Text(venue)
-                    .font(.subheadline)
-                    .lineLimit(2)
-                Spacer()
-            }
-            HStack {
-                Text(date)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                Spacer()
-            }
+            Text(venue.trimmingCharacters(in: .whitespacesAndNewlines))
+                .font(.subheadline)
+                .lineLimit(2)
+            Text(date)
+                .font(.subheadline)
+                .foregroundColor(.secondary)
         }
+        .multilineTextAlignment(.leading)
         .frame(width: 150)
     }
     
@@ -50,8 +45,8 @@ struct AlbumCell: View, Equatable {
     }
 }
 
-//struct AlbumCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AlbumCell(venue: "test", date: "test")
-//    }
-//}
+struct AlbumCell_Previews: PreviewProvider {
+    static var previews: some View {
+        AlbumCell(venue: "testing a long name to see what happens", date: "test", image: UIImage(named: "\(0)")!)
+    }
+}
