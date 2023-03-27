@@ -19,12 +19,4 @@ struct Source: Decodable {
     var source: String?
     var transferrer: String?
     var taper: String?
-    
-    var formattedTaper: String {
-        (taper ?? "").isEmpty ? "N/A" : taper!.trimmingCharacters(in: .whitespacesAndNewlines)
-    }
-    
-    var formattedTransferrer: String {
-        (transferrer ?? "").isEmpty ? "N/A" : transferrer!.trimmingCharacters(in: .whitespacesAndNewlines)
-    }
 }

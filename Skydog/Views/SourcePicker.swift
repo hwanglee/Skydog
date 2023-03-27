@@ -8,43 +8,17 @@
 import SwiftUI
 
 struct SourcePicker: View {
-    @State private var selectedSort: Int = 0
-    @State var sources: [Source]
+    @ObservedObject var viewModel: SourcePickerViewModel
     @Binding var selectedSource: Source?
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationView {
-            List(sources, id: \.uuid) { source in
-                HStack {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("**Taper:** \(source.formattedTaper)")
-                            .font(.subheadline)
-                        Text("**Transferrer:** \(source.formattedTransferrer)")
-                            .font(.subheadline)
-                        HStack {
-                            Text(String(format: "%.1f", source.avgRating))
-                                .font(.subheadline)
-                            Image(systemName: "star.fill").font(.caption)
-                            
-                            if source.isSoundboard {
-                                SoundboardBadge()
-                            }
-                            
-                            if source.isRemaster {
-                                RemasterBadge()
-                            }
-                        }
-                    }
-                    
-                    Spacer(minLength: 10)
-                    
-                    if selectedSource?.uuid == source.uuid {
-                        Image(systemName: "checkmark")
-                    }
-                }
-                .contentShape(Rectangle())
-                .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+            List(viewModel.sources, id: \.uuid) { source in
+                SourcePickerListItem(
+                    viewModel: .init(source: source),
+                    isSelected: source.uuid == selectedSource?.uuid
+                )
                 .onTapGesture {
                     selectedSource = source
                     dismiss()
@@ -61,22 +35,16 @@ struct SourcePicker: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Menu {
-                        Picker("Sort", selection: $selectedSort) {
-                            Label("Rating (Highest)", systemImage: "arrow.up").tag(0)
-                            Label("Rating (Lowest)", systemImage: "arrow.down").tag(1)
+                    Menu("Sort") {
+                        Section("Sort By") {
+                            Picker("Sort", selection: $viewModel.sortOption) {
+                                ForEach(SourcePickerViewModel.SortOption.allCases, id: \.self) { option in
+                                    Label(option.title, systemImage: option.imageName).tag(option)
+                                }
+                            }
                         }
-                    } label: {
-                        Text("Sort")
                     }
                 }
-            }
-        }
-        .onChange(of: selectedSort) { tag in
-            switch tag {
-            case 0: sources.sort { $0.avgRating > $1.avgRating }
-            case 1: sources.sort { $0.avgRating < $1.avgRating }
-            default: print("fail")
             }
         }
     }

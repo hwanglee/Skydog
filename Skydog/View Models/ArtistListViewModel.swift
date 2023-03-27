@@ -34,4 +34,6 @@ class ArtistListViewModel: LoadableObject {
             state = .failed(error)
         }
     }
+    
+    deinit { print("Artist List View Model deinit") }
 }

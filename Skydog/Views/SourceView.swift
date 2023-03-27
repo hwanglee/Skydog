@@ -43,7 +43,10 @@ struct SourceView: View {
                 }
             }
             .sheet(isPresented: $showingSheet) {
-                SourcePicker(sources: viewModel.sources, selectedSource: $viewModel.selectedSource)
+                SourcePicker(
+                    viewModel: .init(sources: viewModel.sources),
+                    selectedSource: $viewModel.selectedSource
+                )
             }
             .listStyle(.inset)
         }
