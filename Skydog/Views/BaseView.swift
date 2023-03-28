@@ -43,6 +43,6 @@ struct BaseView: View {
 
 struct BaseView_Previews: PreviewProvider {
     static var previews: some View {
-        BaseView()
+        BaseView().environmentObject(AudioPlayer())
     }
 }

@@ -10,8 +10,19 @@ import AVKit
 import Combine
 
 class AudioPlayer: ObservableObject {
+    enum State {
+        case idle
+        case playing
+        case paused
+        case loading
+    }
+    
     /// The track is playing.
-    @Published private(set) var isPlaying = false
+    @Published private(set) var state: State = .idle {
+        didSet {
+            print("did set: \(state)")
+        }
+    }
     
     /// The current track that the player is playing.
     @Published private(set) var currentTrack: Track? = nil
@@ -19,20 +30,31 @@ class AudioPlayer: ObservableObject {
     /// A boolean indicating whether or not there is currently a track loaded.
     @Published var hasTrack: Bool = false
     
+    var stateIconName: String? {
+        switch state {
+        case .playing:
+            return "pause.fill"
+        case .paused:
+            return "play.fill"
+        default:
+            return "play.fill"
+        }
+    }
+    
     /// The shared audio session.
     let session = AVAudioSession.sharedInstance()
     
     /// The AVPlayer instance that will be used to play audio.
-    private(set) var player = AVPlayer()
+    private(set) var player = AVQueuePlayer()
+    
+    private var timeControlStatusObserver: AnyCancellable?
     
     /// Initializes an instance of `AudioPlayer`.
     init() {
-        $currentTrack
-            .map { $0 != nil }
-            .assign(to: &$hasTrack)
+        setupBindings()
         
         do {
-//            try session.setActive(true)
+            //            try session.setActive(true)
             try session.setCategory(.playback,
                                     mode: .default,
                                     options: [.allowAirPlay])
@@ -56,7 +78,8 @@ class AudioPlayer: ObservableObject {
         currentTrack = track
         
         let playerItem = AVPlayerItem(url: url)
-        player = AVPlayer(playerItem: playerItem)
+        player.removeAllItems()
+        player.insert(playerItem, after: nil)
         
         play()
     }
@@ -67,7 +90,6 @@ class AudioPlayer: ObservableObject {
         
         print("pause audio player")
         player.pause()
-        isPlaying = false
     }
     
     /// Starts playing the track if there is a track loaded.
@@ -76,18 +98,43 @@ class AudioPlayer: ObservableObject {
         
         print("play audio player")
         player.play()
-        isPlaying = true
     }
     
     /// Toggles the player's playing status.
     func toggle() {
         guard currentTrack != nil else { return }
         
-        isPlaying.toggle()
-        if isPlaying {
-            play()
-        } else {
+        switch state {
+        case .playing:
             pause()
+        case .paused:
+            play()
+        default:
+            return
         }
+    }
+    
+    private func setupBindings() {
+        $currentTrack
+            .map { $0 != nil }
+            .assign(to: &$hasTrack)
+        
+        timeControlStatusObserver = player
+            .publisher(for: \.timeControlStatus)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] timeControlStatus in
+                switch timeControlStatus {
+                case .waitingToPlayAtSpecifiedRate:
+                    if self?.state == .idle || self?.state == .paused {
+                        self?.state = .loading
+                    }
+                case .playing:
+                    self?.state = .playing
+                case .paused:
+                    self?.state = .paused
+                default:
+                    return
+                }
+            }
     }
 }

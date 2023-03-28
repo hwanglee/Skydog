@@ -22,7 +22,7 @@ struct PlayerControls: View {
                 Button(action: {
                     player.toggle()
                 }, label: {
-                    Image(systemName: player.isPlaying ? "pause.fill" : "play.fill")
+                    Image(systemName: player.stateIconName ?? "")
                 })
                 .font(.system(size: 40, weight: .bold))
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50, maxHeight: 50)

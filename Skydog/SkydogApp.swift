@@ -15,7 +15,7 @@ struct SkydogApp: App {
         WindowGroup {
             BaseView()
                 .environmentObject(audioPlayer)
-                .tint(.teal)
+                .tint(.mint)
         }
     }
 }

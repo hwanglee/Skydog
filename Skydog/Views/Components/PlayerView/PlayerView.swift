@@ -9,21 +9,11 @@ import SwiftUI
 import LNPopupUI
 import LNPopupController
 
-struct BlurView: UIViewRepresentable {
-    var style: UIBlurEffect.Style = .systemMaterial
-    func makeUIView(context: Context) -> UIVisualEffectView {
-        return UIVisualEffectView(effect: UIBlurEffect(style: style))
-    }
-    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
-        uiView.effect = UIBlurEffect(style: style)
-    }
-}
-
 struct PlayerView: View {
-    @State var playbackProgress: Float = Float.random(in: 0..<1)
     @EnvironmentObject var player: AudioPlayer
-    private let screenHeight = UIScreen.main.bounds.height
+    @State var playbackProgress: Float = Float.random(in: 0..<1)
     @State var background = Int.random(in: 0...5)
+    private let screenHeight = UIScreen.main.bounds.height
     
     var body: some View {
         GeometryReader { geometry in
@@ -35,6 +25,7 @@ struct PlayerView: View {
                     .padding([.leading, .trailing], 10)
                     .padding([.top], geometry.size.height * 60 / screenHeight)
                     .shadow(radius: 5)
+                
                 VStack(spacing: geometry.size.height * 30.0 / screenHeight) {
                     HStack {
                         VStack(alignment: .leading) {
@@ -50,9 +41,17 @@ struct PlayerView: View {
                                 .font(.title)
                         })
                     }
+                    
                     ProgressView(value: playbackProgress)
                         .padding([.bottom], geometry.size.height * 30.0 / screenHeight)
-                    PlayerControls()
+                    
+                    if player.state == .loading {
+                        ProgressView()
+                            .frame(width: 60, height: 60)
+                    } else {
+                        PlayerControls()
+                    }
+                    
                     VolumeSliderView()
                     BottomButtons()
                 }
@@ -63,16 +62,14 @@ struct PlayerView: View {
                    minHeight: 0,
                    maxHeight: .infinity,
                    alignment: .top)
-            .background({
-                ZStack {
-                    Image("\(background)").resizable()
-                    BlurView()
-                }
+            .background {
+                Image("\(background)").resizable()
                 .edgesIgnoringSafeArea(.all)
                 .allowsHitTesting(false)
-            }())
+                .blur(radius: 100)
+            }
         }
-        .tint(.white)
+        .tint(.primary)
         .popupTitle(player.currentTrack?.title ?? "")
         .popupImage(Image("\(background)").resizable())
         .popupBarItems({
