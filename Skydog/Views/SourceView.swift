@@ -18,7 +18,7 @@ struct SourceView: View {
                 Section(sourceSet.isEncore ? "Encore" : "Set \(sourceSet.index)") {
                     ForEach(sourceSet.tracks, id: \.uuid) { track in
                         Button {
-                            player.setTrack(track: track)
+                            updatePlayer(track: track)
                         } label: {
                             HStack(spacing: 20) {
                                 Text("\(track.trackPosition)")
@@ -47,10 +47,15 @@ struct SourceView: View {
             .listStyle(.inset)
         }
     }
+    
+    func updatePlayer(track: Track) {
+        player.setTrack(track: track)
+        player.show = .init(show: viewModel.show)
+    }
 }
 
 struct SourceView_Previews: PreviewProvider {
     static var previews: some View {
-        SourceView(viewModel: .init(showUUID: "0"))
+        SourceView(viewModel: .init(show: .example))
     }
 }

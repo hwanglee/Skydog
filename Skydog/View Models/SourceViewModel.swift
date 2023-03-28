@@ -15,10 +15,10 @@ class SourceViewModel: LoadableObject {
     @Published var selectedSource: Source?
     var sets: [SourceSet] { selectedSource?.sets ?? [] }
     
-    private var showUUID: String
+    private(set) var show: Show
     
-    init(showUUID: String) {
-        self.showUUID = showUUID
+    init(show: Show) {
+        self.show = show
     }
     
     @MainActor
@@ -26,7 +26,7 @@ class SourceViewModel: LoadableObject {
         state = .loading
         
         do {
-            sources = try await DataLoader.shared.fetchSources(showUUID: showUUID)
+            sources = try await DataLoader.shared.fetchSources(showUUID: show.uuid)
             sources.sort { $0.avgRating > $1.avgRating }
             
             selectedSource = sources.first

@@ -8,23 +8,26 @@
 import SwiftUI
 
 struct ShowsList: View {
-    var shows: [ShowListItemViewModel]
+    var shows: [ShowViewModel]
     
     var body: some View {
         List(shows, id: \.show.id) { show in
             NavigationLink {
-                SourceView(viewModel: .init(showUUID: show.show.uuid))
+                SourceView(viewModel: .init(show: show.show))
                     .navigationTitle(show.date)
             } label: {
-                HStack(spacing: 10) {
+                HStack(spacing: 14) {
                     Image(uiImage: show.albumArt)
                         .resizable()
                         .clipped()
-                        .frame(width: 40, height: 40)
+                        .frame(width: 46, height: 46)
+                        .cornerRadius(4)
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text(show.venueName)
-                        Text(show.date).font(.subheadline).foregroundColor(.gray)
+                        Text(show.date)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
                     }
                 }
             }

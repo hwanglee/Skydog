@@ -14,20 +14,11 @@ struct AlbumCell: View, Equatable {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Image(uiImage: image)
+            Image(uiImage: image.preparingThumbnail(of: .init(width: 150, height: 150)) ?? UIImage())
                 .resizable()
                 .frame(width: 150, height: 150)
                 .scaledToFill()
                 .clipped()
-//                .overlay(Color((venue + date).generateColor()).opacity(0.3))
-//                .overlay(
-//                    Text(venue)
-//                        .fontWeight(.bold)
-//                        .font(.title3)
-//                        .padding(8)
-//                        .foregroundColor(.white),
-//                    alignment: .topLeading
-//                )
                 .cornerRadius(8)
             Text(venue)
                 .font(.subheadline)

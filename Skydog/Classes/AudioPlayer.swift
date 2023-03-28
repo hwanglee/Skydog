@@ -24,6 +24,8 @@ class AudioPlayer: ObservableObject {
         }
     }
     
+    @Published var show: ShowViewModel?
+    
     /// The current track that the player is playing.
     @Published private(set) var currentTrack: Track? = nil
     

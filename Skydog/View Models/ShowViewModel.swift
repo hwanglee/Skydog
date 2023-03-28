@@ -8,7 +8,7 @@
 import Foundation
 import UIKit.UIImage
 
-class ShowListItemViewModel {
+class ShowViewModel {
     var show: Show
     
     init(show: Show) {

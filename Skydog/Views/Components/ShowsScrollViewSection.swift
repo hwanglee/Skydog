@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShowsScrollViewSection: View {
-    var shows: [ShowListItemViewModel] = []
+    var shows: [ShowViewModel] = []
     var title: String
     
     var body: some View {
@@ -16,7 +16,7 @@ struct ShowsScrollViewSection: View {
             HorizontalScrollView {
                 ForEach(shows.prefix(10), id: \.show.id) { item in
                     NavigationLink {
-                        SourceView(viewModel: .init(showUUID: item.show.uuid))
+                        SourceView(viewModel: .init(show: item.show))
                             .navigationTitle(item.date)
                     } label: {
                         AlbumCell(

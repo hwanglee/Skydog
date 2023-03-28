@@ -18,7 +18,7 @@ struct PlayerView: View {
     var body: some View {
         GeometryReader { geometry in
             return VStack {
-                Image("\(background)")
+                Image(uiImage: player.show?.albumArt ?? UIImage())
                     .resizable()
                     .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                     .aspectRatio(contentMode: .fit)
@@ -64,7 +64,7 @@ struct PlayerView: View {
                    maxHeight: .infinity,
                    alignment: .top)
             .background {
-                Image("\(background)").resizable()
+                Image(uiImage: player.show?.albumArt ?? UIImage()).resizable()
                 .edgesIgnoringSafeArea(.all)
                 .allowsHitTesting(false)
                 .blur(radius: 100)
@@ -72,7 +72,12 @@ struct PlayerView: View {
         }
         .tint(.primary)
         .popupTitle(player.currentTrack?.title ?? "")
-        .popupImage(Image("\(background)").resizable())
+        .popupImage(
+            Image(
+                uiImage: player.show?.albumArt.preparingThumbnail(of: .init(width: 150, height: 150)) ?? UIImage()
+            )
+            .resizable()
+        )
         .popupBarItems({
             MinimizedPlayerView()
         })

@@ -21,7 +21,7 @@ extension UIImage {
         ]
         
         // Create a copy of the image to write text onto
-        UIGraphicsBeginImageContext(size)
+        UIGraphicsBeginImageContextWithOptions(size, false, 2)
         draw(in: CGRect(origin: CGPoint.zero, size: size))
         
         // Determine the size of the text and its position on the image
