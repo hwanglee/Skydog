@@ -28,7 +28,7 @@ struct ArtistView: View {
                             NavigationLink {
                                 YearView(year: year)
                             } label: {
-                                YearCell(viewModel: .init(year: year))
+                                YearCell(year: year)
                             }
                             .buttonStyle(.plain)
                         }

@@ -10,7 +10,7 @@ import UIKit.UIImage
 extension UIImage {
     func writeText(text: String, textPosition: NSTextAlignment) -> UIImage? {
         let textColor = UIColor.white
-        let textFont = UIFont.preferredFont(forTextStyle: .headline).withSize(24)
+        let textFont = UIFont.preferredFont(forTextStyle: .headline).withSize(22)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = textPosition
         paragraphStyle.lineBreakMode = .byWordWrapping
@@ -21,7 +21,7 @@ extension UIImage {
         ]
         
         // Create a copy of the image to write text onto
-        UIGraphicsBeginImageContextWithOptions(size, false, 2)
+        UIGraphicsBeginImageContextWithOptions(size, false, 2.5)
         draw(in: CGRect(origin: CGPoint.zero, size: size))
         
         // Determine the size of the text and its position on the image

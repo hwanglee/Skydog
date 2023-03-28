@@ -9,23 +9,9 @@ import Foundation
 import UIKit.UIImage
 
 class ShowViewModel {
-    var show: Show
+    private(set) var show: Show
     
-    init(show: Show) {
-        self.show = show
-    }
-    
-    var albumArt: UIImage {
-        let imageIndex = (show.venue?.name.count ?? 0) % 18
-        let image = UIImage(named: "\(imageIndex)")
-        
-        guard let name = show.venue?.name, let image = image else { return UIImage() }
-        
-        let color = (name + show.displayDate).generateColor().withAlphaComponent(0.1)
-        let albumArt = image.tint(tintColor: color).writeText(text: name, textPosition: .left)
-        
-        return albumArt ?? UIImage()
-    }
+    private(set) lazy var albumArt = createAlbumArt()
     
     var date: String {
         let dateFormatter = DateFormatter()
@@ -37,5 +23,18 @@ class ShowViewModel {
         return date.formatted(date: .numeric, time: .omitted)
     }
     
-    var venueName: String { show.venue?.name ?? "" }
+    var venueName: String { show.venue?.name ?? "Unknown Venue" }
+    
+    init(show: Show) {
+        self.show = show
+    }
+    
+    private func createAlbumArt() -> UIImage {
+        let imageIndex = venueName.count % 18
+        let image = UIImage(named: "\(imageIndex)")
+        let color = (venueName + show.displayDate).generateColor().withAlphaComponent(0.1)
+        let albumArt = image?.tint(tintColor: color).writeText(text: venueName, textPosition: .left)
+        
+        return albumArt ?? UIImage()
+    }
 }
