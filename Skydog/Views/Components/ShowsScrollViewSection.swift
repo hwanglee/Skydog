@@ -34,8 +34,8 @@ struct ShowsScrollViewSection: View {
             } label: {
                 ScrollViewHeader(title: title)
             }
-            .buttonStyle(.plain)
         }
+        .buttonStyle(.plain)
     }
 }
 

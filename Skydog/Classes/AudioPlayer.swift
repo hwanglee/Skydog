@@ -19,9 +19,6 @@ class AudioPlayer: ObservableObject {
     /// A boolean indicating whether or not there is currently a track loaded.
     @Published var hasTrack: Bool = false
     
-    /// Publisher for `hasTrack` property
-    private lazy var hasTrackPublisher: Published<Bool>.Publisher = $hasTrack
-    
     /// The shared audio session.
     let session = AVAudioSession.sharedInstance()
     
@@ -33,10 +30,13 @@ class AudioPlayer: ObservableObject {
         $currentTrack
             .map { $0 != nil }
             .assign(to: &$hasTrack)
-        
+    }
+    
+    func setup() {
         do {
-            try session.setCategory(AVAudioSession.Category.playback,
-                                    mode: AVAudioSession.Mode.default,
+//            try session.setActive(true)
+            try session.setCategory(.playback,
+                                    mode: .default,
                                     options: [.allowAirPlay])
             print("Playback OK")
             
@@ -44,7 +44,7 @@ class AudioPlayer: ObservableObject {
             
             print("Session is Active")
         } catch {
-            print(error)
+            print(error.localizedDescription)
         }
     }
     

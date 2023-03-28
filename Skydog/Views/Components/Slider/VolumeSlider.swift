@@ -14,7 +14,7 @@ struct VolumeSlider<T: BinaryFloatingPoint>: View {
     let fillColor: Color
     let emptyColor: Color
     let height: CGFloat
-    let onEditingChanged: (T) -> Void
+    let onValueChanged: (T) -> Void
     
     // private variables
     @State private var localRealProgress: T = 0
@@ -61,13 +61,13 @@ struct VolumeSlider<T: BinaryFloatingPoint>: View {
                 .onChanged { gesture in
                     localTempProgress = T(gesture.translation.width / bounds.size.width)
                     value = max(min(getPrgValue(), inRange.upperBound), inRange.lowerBound)
+                    onValueChanged(value)
                 }.onEnded { value in
                     localRealProgress = max(min(localRealProgress + localTempProgress, 1), 0)
                     localTempProgress = 0
                 })
             .onChange(of: isActive) { newValue in
                 value = max(min(getPrgValue(), inRange.upperBound), inRange.lowerBound)
-                onEditingChanged(value)
             }
             .onAppear {
                 localRealProgress = getPrgPercentage(value)

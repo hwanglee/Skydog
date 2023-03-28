@@ -17,35 +17,32 @@ struct ArtistView: View {
     
     var body: some View {
         ScrollView(.vertical) {
-            Spacer(minLength: sectionSpacing)
-            
-            ShowsScrollViewSection(shows: topShows.map { .init(show: $0) }, title: "Top Shows")
-            
-            Spacer(minLength: sectionSpacing)
-            
-            ShowsScrollViewSection(shows: recentShows.map { .init(show: $0) }, title: "Recent Shows")
-            
-            Spacer(minLength: sectionSpacing)
-            
-            Section {
-                HorizontalScrollView {
-                    ForEach(years.prefix(10), id: \.id) { item in
-                        NavigationLink {
-                            YearView(year: item)
-                        } label: {
-                            YearCell(year: item.year)
+            VStack(spacing: 20) {
+                ShowsScrollViewSection(shows: topShows.map { .init(show: $0) }, title: "Top Shows")
+                
+                ShowsScrollViewSection(shows: recentShows.map { .init(show: $0) }, title: "Recent Shows")
+                
+                Section {
+                    HorizontalScrollView {
+                        ForEach(years.prefix(10), id: \.id) { item in
+                            NavigationLink {
+                                YearView(year: item)
+                            } label: {
+                                YearCell(year: item.year)
+                            }
+                            .buttonStyle(.plain)
                         }
-                        .buttonStyle(.plain)
                     }
+                } header: {
+                    NavigationLink {
+                        YearList(years: years)
+                    } label: {
+                        ScrollViewHeader(title: "Years")
+                    }
+                    .buttonStyle(.plain)
                 }
-            } header: {
-                NavigationLink {
-                    YearList(years: years)
-                } label: {
-                    ScrollViewHeader(title: "Years")
-                }
-                .buttonStyle(.plain)
             }
+            .padding(.top, 20)
         }
         .task {
             await loadData()

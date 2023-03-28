@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ArtistList: View {
     @StateObject var viewModel: ArtistListViewModel
+    @EnvironmentObject var player: AudioPlayer
     
     var body: some View {
         NavigationView {
@@ -28,6 +29,9 @@ struct ArtistList: View {
             }
             .navigationTitle("Artists")
             .disableAutocorrection(true)
+        }
+        .onAppear {
+            player.setup()
         }
     }
 }

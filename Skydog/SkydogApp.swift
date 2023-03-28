@@ -13,7 +13,7 @@ struct SkydogApp: App {
     
     var body: some Scene {
         WindowGroup {
-            BaseView().environmentObject(AudioPlayer())
+            BaseView().environmentObject(audioPlayer)
         }
     }
 }

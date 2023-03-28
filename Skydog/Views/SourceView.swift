@@ -15,7 +15,7 @@ struct SourceView: View {
     var body: some View {
         AsyncContentView(source: viewModel) { _ in
             List(viewModel.sets, id: \.uuid) { sourceSet in
-                Section {
+                Section(sourceSet.isEncore ? "Encore" : "Set \(sourceSet.index)") {
                     ForEach(sourceSet.tracks, id: \.uuid) { track in
                         Button {
                             player.setTrack(track: track)
@@ -29,16 +29,12 @@ struct SourceView: View {
                             }
                         }
                     }
-                } header: {
-                    Text(sourceSet.isEncore ? "Encore" : "Set \(sourceSet.index)")
                 }
             }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Button {
+                    Button("Source") {
                         showingSheet.toggle()
-                    } label: {
-                        Text("Source")
                     }
                 }
             }

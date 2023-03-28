@@ -29,7 +29,7 @@ struct AlbumCell: View, Equatable {
                     alignment: .topLeading
                 )
                 .cornerRadius(8)
-            Text(venue.trimmingCharacters(in: .whitespacesAndNewlines))
+            Text(venue)
                 .font(.subheadline)
                 .lineLimit(2)
             Text(date)
