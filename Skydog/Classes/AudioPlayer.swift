@@ -125,7 +125,7 @@ class AudioPlayer: ObservableObject {
             .sink { [weak self] timeControlStatus in
                 switch timeControlStatus {
                 case .waitingToPlayAtSpecifiedRate:
-                    if self?.state == .idle || self?.state == .paused {
+                    if self?.state == .idle {
                         self?.state = .loading
                     }
                 case .playing:
