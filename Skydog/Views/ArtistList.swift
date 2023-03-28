@@ -30,9 +30,6 @@ struct ArtistList: View {
             .navigationTitle("Artists")
             .disableAutocorrection(true)
         }
-        .onAppear {
-            player.setup()
-        }
     }
 }
 

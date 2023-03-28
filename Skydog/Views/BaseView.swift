@@ -34,7 +34,6 @@ struct BaseView: View {
             tabBarAppearance.configureWithDefaultBackground()
             UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         }
-//        .tint(.white)
         .popup(isBarPresented: $player.hasTrack, isPopupOpen: $isPopupOpen) {
             PlayerView()
         }

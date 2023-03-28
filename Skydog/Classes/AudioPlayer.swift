@@ -30,9 +30,7 @@ class AudioPlayer: ObservableObject {
         $currentTrack
             .map { $0 != nil }
             .assign(to: &$hasTrack)
-    }
-    
-    func setup() {
+        
         do {
 //            try session.setActive(true)
             try session.setCategory(.playback,
