@@ -30,17 +30,6 @@ class AudioPlayer: ObservableObject {
     /// A boolean indicating whether or not there is currently a track loaded.
     @Published var hasTrack: Bool = false
     
-    var stateIconName: String? {
-        switch state {
-        case .playing:
-            return "pause.fill"
-        case .paused:
-            return "play.fill"
-        default:
-            return "play.fill"
-        }
-    }
-    
     /// The shared audio session.
     let session = AVAudioSession.sharedInstance()
     
@@ -128,10 +117,13 @@ class AudioPlayer: ObservableObject {
                     if self?.state == .idle {
                         self?.state = .loading
                     }
+                    
                 case .playing:
                     self?.state = .playing
+                    
                 case .paused:
                     self?.state = .paused
+                    
                 default:
                     return
                 }

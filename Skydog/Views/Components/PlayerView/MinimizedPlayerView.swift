@@ -21,15 +21,10 @@ struct MinimizedPlayerView: View {
                 }
             }
             
-            Button(action: {
+            FluidMusicButons(isPlaying: player.state == .playing) {
                 player.toggle()
-            }) {
-                if player.state == .loading {
-                    ProgressView()
-                } else {
-                    Image(systemName: player.stateIconName ?? "")
-                }
             }
+            .frame(width: 42, height: 42)
             
             Button(action: {
                 print("Next")

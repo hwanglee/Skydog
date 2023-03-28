@@ -24,11 +24,11 @@ struct ArtistView: View {
                 
                 Section {
                     HorizontalScrollView {
-                        ForEach(years.prefix(10), id: \.id) { item in
+                        ForEach(years.prefix(10), id: \.id) { year in
                             NavigationLink {
-                                YearView(year: item)
+                                YearView(year: year)
                             } label: {
-                                YearCell(year: item.year)
+                                YearCell(viewModel: .init(year: year))
                             }
                             .buttonStyle(.plain)
                         }

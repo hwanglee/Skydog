@@ -8,30 +8,25 @@
 import SwiftUI
 
 struct YearCell: View, Equatable {
-    var year: String
+    @ObservedObject var viewModel: YearCellViewModel
     
     var body: some View {
-        Image("\(Int.random(in: 0...17))")
+        Image(uiImage: viewModel.cellImage)
             .resizable()
             .frame(width: 150, height: 150)
             .scaledToFill()
             .clipped()
             .cornerRadius(8)
             .frame(width: 150, height: 150)
-            .overlay(
-                Text(year)
-                    .foregroundColor(.white)
-                    .font(.system(size: 20, weight: .bold, design: .rounded))
-            )
     }
     
     static func == (lhs: YearCell, rhs: YearCell) -> Bool {
-        return lhs.year == rhs.year
+        return lhs.viewModel.year.id == rhs.viewModel.year.id
     }
 }
 
 struct YearCell_Previews: PreviewProvider {
     static var previews: some View {
-        YearCell(year: "2022")
+        YearCell(viewModel: .init(year: .example))
     }
 }

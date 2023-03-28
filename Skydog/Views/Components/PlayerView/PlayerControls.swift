@@ -13,26 +13,23 @@ struct PlayerControls: View {
     
     var body: some View {
         GeometryReader { geometry in
-            HStack {
+            HStack(spacing: geometry.size.width / 6) {
                 Button(action: {}, label: {
                     Image(systemName: "backward.fill")
                 })
-                .frame(minWidth: 0, maxWidth: .infinity)
                 
-                Button(action: {
+                FluidMusicButons(isPlaying: player.state == .playing) {
                     player.toggle()
-                }, label: {
-                    Image(systemName: player.stateIconName ?? "")
-                })
-                .font(.system(size: 40, weight: .bold))
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50, maxHeight: 50)
+                }
+                .font(.system(size: 42))
+                .frame(width: 66, height: 66)
                 
                 Button(action: {}, label: {
                     Image(systemName: "forward.fill")
                 })
-                .frame(minWidth: 0, maxWidth: .infinity)
             }
             .font(.system(.title))
+            .frame(minWidth: 0, maxWidth: .infinity)
         }
     }
 }

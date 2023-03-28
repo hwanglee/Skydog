@@ -22,26 +22,3 @@ extension String {
         return color
     }
 }
-
-func textToImage(date: String, venue: String, inImage image: UIImage) -> UIImage {
-    let textColor = UIColor.white
-    let textFont = UIFont.systemFont(ofSize: 70, weight: .bold)
-    
-    let scale = UIScreen.main.scale
-    UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
-    
-    let textFontAttributes = [
-        NSAttributedString.Key.font: textFont,
-        NSAttributedString.Key.foregroundColor: textColor,
-    ] as [NSAttributedString.Key : Any]
-    image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
-    
-    let rect = CGRect(origin: .init(x: 20, y: 80),
-                      size: .init(width: image.size.width * 0.9, height: image.size.height))
-    venue.draw(in: rect, withAttributes: textFontAttributes)
-    
-    let newImage = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    
-    return newImage!
-}

@@ -19,7 +19,12 @@ class ShowListItemViewModel {
         let imageIndex = (show.venue?.name.count ?? 0) % 18
         let image = UIImage(named: "\(imageIndex)")
         
-        return image ?? UIImage()
+        guard let name = show.venue?.name, let image = image else { return UIImage() }
+        
+        let color = (name + show.displayDate).generateColor().withAlphaComponent(0.1)
+        let albumArt = image.tint(tintColor: color).writeText(text: name, textPosition: .left)
+        
+        return albumArt ?? UIImage()
     }
     
     var date: String {

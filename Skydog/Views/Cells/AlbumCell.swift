@@ -19,15 +19,15 @@ struct AlbumCell: View, Equatable {
                 .frame(width: 150, height: 150)
                 .scaledToFill()
                 .clipped()
-                .overlay(Color((venue + date).generateColor()).opacity(0.3))
-                .overlay(
-                    Text(venue)
-                        .fontWeight(.bold)
-                        .font(.title3)
-                        .padding(8)
-                        .foregroundColor(.white),
-                    alignment: .topLeading
-                )
+//                .overlay(Color((venue + date).generateColor()).opacity(0.3))
+//                .overlay(
+//                    Text(venue)
+//                        .fontWeight(.bold)
+//                        .font(.title3)
+//                        .padding(8)
+//                        .foregroundColor(.white),
+//                    alignment: .topLeading
+//                )
                 .cornerRadius(8)
             Text(venue)
                 .font(.subheadline)
