@@ -18,9 +18,15 @@ struct ArtistView: View {
     var body: some View {
         ScrollView(.vertical) {
             VStack(spacing: 20) {
-                ShowsScrollViewSection(shows: topShows.map { .init(show: $0) }, title: "Top Shows")
+                ShowsScrollViewSection(
+                    shows: topShows.map { .init(show: $0) },
+                    title: "Top Shows"
+                )
                 
-                ShowsScrollViewSection(shows: recentShows.map { .init(show: $0) }, title: "Recent Shows")
+                ShowsScrollViewSection(
+                    shows: recentShows.map { .init(show: $0) },
+                    title: "Recent Shows"
+                )
                 
                 Section {
                     HorizontalScrollView {

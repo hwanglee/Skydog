@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShowsScrollViewSection: View {
-    var shows: [ShowViewModel] = []
+    var shows: [ShowViewModel]
     var title: String
     
     var body: some View {
