@@ -20,13 +20,17 @@ struct ShowsList: View {
                     Image(uiImage: show.albumArt)
                         .resizable()
                         .clipped()
-                        .frame(width: 46, height: 46)
+                        .frame(width: 60, height: 60)
                         .cornerRadius(4)
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text(show.venueName)
+                            .lineLimit(1)
                         Text(show.date)
                             .font(.subheadline)
+                            .foregroundColor(.gray)
+                        Text(show.averageRatingLabel)
+                            .font(.footnote)
                             .foregroundColor(.gray)
                     }
                 }

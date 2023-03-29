@@ -18,7 +18,7 @@ struct PlayerView: View {
     var body: some View {
         GeometryReader { geometry in
             return VStack {
-                Image(uiImage: player.show?.albumArt ?? UIImage())
+                Image(uiImage: player.albumArt)
                     .resizable()
                     .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                     .aspectRatio(contentMode: .fit)
@@ -29,7 +29,7 @@ struct PlayerView: View {
                 VStack(spacing: geometry.size.height * 30.0 / screenHeight) {
                     HStack {
                         VStack(alignment: .leading) {
-                            Text(player.currentTrack?.title ?? "")
+                            Text(player.currentTrackName ?? "")
                                 .font(.system(size: 20, weight: .bold))
                         }
                         .lineLimit(1)
@@ -44,6 +44,8 @@ struct PlayerView: View {
                     
                     ProgressView(value: playbackProgress)
                         .padding([.bottom], geometry.size.height * 30.0 / screenHeight)
+                    
+//                    Text(player.currentTimeString + "    " + player.durationString)
                     
                     if player.state == .loading {
                         ProgressView()
@@ -64,17 +66,17 @@ struct PlayerView: View {
                    maxHeight: .infinity,
                    alignment: .top)
             .background {
-                Image(uiImage: player.show?.albumArt ?? UIImage()).resizable()
+                Image(uiImage: player.albumArt).resizable()
                 .edgesIgnoringSafeArea(.all)
                 .allowsHitTesting(false)
                 .blur(radius: 100)
             }
         }
         .tint(.primary)
-        .popupTitle(player.currentTrack?.title ?? "")
+        .popupTitle(player.currentTrackName ?? "")
         .popupImage(
             Image(
-                uiImage: player.show?.albumArt.preparingThumbnail(of: .init(width: 150, height: 150)) ?? UIImage()
+                uiImage: player.albumArt.preparingThumbnail(of: .init(width: 150, height: 150)) ?? UIImage()
             )
             .resizable()
         )

@@ -25,6 +25,10 @@ class ShowViewModel {
     
     var venueName: String { show.venue?.name ?? "Unknown Venue" }
     
+    var averageRatingLabel: String {
+        return "Rating: \(show.avgRating.formatted(.number.precision(.fractionLength(1))))"
+    }
+    
     init(show: Show) {
         self.show = show
     }

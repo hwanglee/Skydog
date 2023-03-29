@@ -18,7 +18,7 @@ struct PlayerControls: View {
                     Image(systemName: "backward.fill")
                 })
                 
-                FluidMusicButons(isPlaying: player.state == .playing) {
+                PlaybackButton(isPlaying: player.state == .playing) {
                     player.toggle()
                 }
                 .font(.system(size: 42))

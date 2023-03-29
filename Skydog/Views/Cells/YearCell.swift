@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct YearCell: View, Equatable {
-    var year: Year
+    var year: String
     
     var body: some View {
         Rectangle()
-            .fill(Color(uiColor: generateColor(for: year.year)))
+            .fill(Color(uiColor: generateColor(for: year)))
             .overlay(alignment: .center) {
-                Text(year.year)
+                Text(year)
                     .font(.headline)
             }
             .cornerRadius(8)
@@ -35,14 +35,10 @@ struct YearCell: View, Equatable {
         
         return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
-    
-    static func == (lhs: YearCell, rhs: YearCell) -> Bool {
-        return lhs.year.id == rhs.year.id
-    }
 }
 
 struct YearCell_Previews: PreviewProvider {
     static var previews: some View {
-        YearCell(year: .example)
+        YearCell(year: "2012")
     }
 }

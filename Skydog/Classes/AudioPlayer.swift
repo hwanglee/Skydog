@@ -32,13 +32,23 @@ class AudioPlayer: ObservableObject {
     /// A boolean indicating whether or not there is currently a track loaded.
     @Published var hasTrack: Bool = false
     
+    var albumArt: UIImage { show?.albumArt ?? UIImage() }
+    var currentTrackName: String? { currentTrack?.title }
+    
+//    @Published var currentTime: CMTime = .zero
+//
+//    var currentTimeString: String { currentTime.toString() }
+//
+//    var duration: CMTime? { player.currentItem?.duration }
+//    var durationString: String { duration?.toString() ?? "" }
+    
     /// The shared audio session.
     let session = AVAudioSession.sharedInstance()
     
     /// The AVPlayer instance that will be used to play audio.
     private(set) var player = AVQueuePlayer()
     
-    private var timeControlStatusObserver: AnyCancellable?
+    private var cancellables = Set<AnyCancellable>()
     
     /// Initializes an instance of `AudioPlayer`.
     init() {
@@ -77,24 +87,16 @@ class AudioPlayer: ObservableObject {
     
     /// Pauses the player if there is a track loaded.
     func pause() {
-        guard currentTrack != nil else { return }
-        
-        print("pause audio player")
         player.pause()
     }
     
     /// Starts playing the track if there is a track loaded.
     func play() {
-        guard currentTrack != nil else { return }
-        
-        print("play audio player")
         player.play()
     }
     
     /// Toggles the player's playing status.
     func toggle() {
-        guard currentTrack != nil else { return }
-        
         switch state {
         case .playing:
             pause()
@@ -110,7 +112,7 @@ class AudioPlayer: ObservableObject {
             .map { $0 != nil }
             .assign(to: &$hasTrack)
         
-        timeControlStatusObserver = player
+        player
             .publisher(for: \.timeControlStatus)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] timeControlStatus in
@@ -130,5 +132,82 @@ class AudioPlayer: ObservableObject {
                     return
                 }
             }
+            .store(in: &cancellables)
+        
+//        player
+//            .periodicTimePublisher()
+//            .receive(on: DispatchQueue.main)
+//            .sink {
+//                self.currentTime = $0
+//            }
+//            .store(in: &cancellables)
+    }
+}
+
+extension AVPlayer {
+    func periodicTimePublisher(forInterval interval: CMTime = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))) -> AnyPublisher<CMTime, Never> {
+        Publisher(self, forInterval: interval)
+            .eraseToAnyPublisher()
+    }
+}
+
+fileprivate extension AVPlayer {
+    private struct Publisher: Combine.Publisher {
+    
+        typealias Output = CMTime
+        typealias Failure = Never
+    
+        var player: AVPlayer
+        var interval: CMTime
+
+        init(_ player: AVPlayer, forInterval interval: CMTime) {
+            self.player = player
+            self.interval = interval
+        }
+
+        func receive<S>(subscriber: S) where S : Subscriber, Publisher.Failure == S.Failure, Publisher.Output == S.Input {
+            let subscription = CMTime.Subscription(subscriber: subscriber, player: player, forInterval: interval)
+            subscriber.receive(subscription: subscription)
+        }
+    }
+}
+
+fileprivate extension CMTime {
+    final class Subscription<SubscriberType: Subscriber>: Combine.Subscription where SubscriberType.Input == CMTime, SubscriberType.Failure == Never {
+
+        var player: AVPlayer? = nil
+        var observer: Any? = nil
+
+        init(subscriber: SubscriberType, player: AVPlayer, forInterval interval: CMTime) {
+            self.player = player
+            observer = player.addPeriodicTimeObserver(forInterval: interval, queue: nil) { time in
+                _ = subscriber.receive(time)
+            }
+        }
+
+        func request(_ demand: Subscribers.Demand) {
+            // We do nothing here as we only want to send events when they occur.
+            // See, for more info: https://developer.apple.com/documentation/combine/subscribers/demand
+        }
+
+        func cancel() {
+            if let observer = observer {
+                player?.removeTimeObserver(observer)
+            }
+            observer = nil
+            player = nil
+        }
+    }
+    
+    func toString() -> String {
+        let cmSeconds = CMTimeGetSeconds(self)
+        
+        guard seconds != .infinity, !cmSeconds.isNaN else { return "00:00" }
+        
+        let totalSeconds = Int(cmSeconds)
+        let minutes = totalSeconds / 60
+        let seconds = totalSeconds % 60
+        
+        return String(format: "%02d:%02d", minutes, seconds)
     }
 }

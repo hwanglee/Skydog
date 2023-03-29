@@ -19,12 +19,12 @@ struct ArtistView: View {
         ScrollView(.vertical) {
             VStack(spacing: 20) {
                 ShowsScrollViewSection(
-                    shows: topShows.map { .init(show: $0) },
+                    shows: topShows.map { ShowViewModel(show: $0) },
                     title: "Top Shows"
                 )
                 
                 ShowsScrollViewSection(
-                    shows: recentShows.map { .init(show: $0) },
+                    shows: recentShows.map { ShowViewModel(show: $0) },
                     title: "Recent Shows"
                 )
                 
@@ -34,7 +34,7 @@ struct ArtistView: View {
                             NavigationLink {
                                 YearView(year: year)
                             } label: {
-                                YearCell(year: year)
+                                YearCell(year: year.year)
                             }
                             .buttonStyle(.plain)
                         }

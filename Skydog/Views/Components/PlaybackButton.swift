@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FluidMusicButons: View {
+struct PlaybackButton: View {
     var isPlaying: Bool
     var action: () -> ()
     @State private var transparency: Double = 0.0
@@ -25,6 +25,7 @@ struct FluidMusicButons: View {
             ZStack {
                 Circle()
                     .opacity(transparency)
+                
                 Image(systemName: "pause.fill")
                     .scaleEffect(isPlaying ? 1 : 0)
                     .opacity(isPlaying ? 1 : 0)
@@ -39,11 +40,11 @@ struct FluidMusicButons: View {
     }
 }
 
-struct FluidMusicButons_Previews: PreviewProvider {
+struct PlaybackButton_Previews: PreviewProvider {
     static var previews: some View {
-        FluidMusicButons(isPlaying: true) {
+        PlaybackButton(isPlaying: true) {
             print("test")
         }
-            .preferredColorScheme(.dark)
+        .preferredColorScheme(.dark)
     }
 }
