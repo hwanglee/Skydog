@@ -58,7 +58,7 @@ struct SourceView: View {
                     Section {
                         Text(info)
                             .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.secondary)
                             .padding(.top, 8)
                             .padding(.bottom, 30)
                     }

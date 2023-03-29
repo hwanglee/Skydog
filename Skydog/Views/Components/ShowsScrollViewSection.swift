@@ -22,7 +22,8 @@ struct ShowsScrollViewSection: View {
                         AlbumCell(
                             venue: show.venueName,
                             date: show.date,
-                            image: show.albumArt
+                            image: show.albumArt,
+                            rating: show.averageRatingLabel
                         )
                     }
                 }

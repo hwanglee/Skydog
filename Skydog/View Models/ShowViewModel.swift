@@ -20,7 +20,7 @@ class ShowViewModel {
         
         guard let date = date else { return show.displayDate }
         
-        return date.formatted(date: .numeric, time: .omitted)
+        return date.formatted(date: .long, time: .omitted)
     }
     
     var venueName: String { show.venue?.name ?? "Unknown Venue" }

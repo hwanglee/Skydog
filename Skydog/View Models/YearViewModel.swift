@@ -19,6 +19,7 @@ class YearViewModel: LoadableObject {
         self.year = year
     }
     
+    @MainActor
     func load() async {
         state = .loading
         

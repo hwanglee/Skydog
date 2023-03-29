@@ -54,19 +54,21 @@ class AudioPlayer: ObservableObject {
     init() {
         setupBindings()
         
-        do {
-            //            try session.setActive(true)
-            try session.setCategory(.playback,
-                                    mode: .default,
-                                    options: [.allowAirPlay])
-            print("Playback OK")
-            
-            try session.setActive(true)
-            
-            print("Session is Active")
-        } catch {
-            print(error.localizedDescription)
+        defer {
+            do {
+                try session.setCategory(.playback,
+                                        mode: .default,
+                                        options: [.duckOthers])
+                print("Playback OK")
+                
+                try session.setActive(true)
+                
+                print("Session is Active")
+            } catch {
+                print(error.localizedDescription)
+            }
         }
+        
     }
     
     /// Loads and starts playing a new track.

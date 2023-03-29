@@ -17,7 +17,7 @@ struct VolumeSliderView: View {
             inRange: 0...1,
             activeFillColor: .white,
             fillColor: .white,
-            emptyColor: .gray,
+            emptyColor: .secondary,
             height: 8) {
                 volObserver.setVolume($0)
             }

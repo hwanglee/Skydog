@@ -17,7 +17,7 @@ struct PlayerView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            return VStack {
+            VStack {
                 Image(uiImage: player.albumArt)
                     .resizable()
                     .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
@@ -43,7 +43,7 @@ struct PlayerView: View {
                     
                     ProgressView(value: playbackProgress)
                         .padding([.bottom], geometry.size.height * 30.0 / screenHeight)
-
+                    
                     if player.state == .loading {
                         ProgressView()
                             .frame(width: 60, height: 60)

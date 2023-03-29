@@ -29,12 +29,14 @@ struct ShowsList: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(show.venueName)
                             .lineLimit(1)
+                        
                         Text(show.date)
                             .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.secondary)
+                        
                         Text(show.averageRatingLabel)
                             .font(.footnote)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.secondary)
                     }
                 }
             }

@@ -19,7 +19,7 @@ struct YearList: View {
                     Text(year.year)
                     Text("\(year.showCount) Shows")
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
                 }
                 .padding([.top, .bottom], 2)
             }

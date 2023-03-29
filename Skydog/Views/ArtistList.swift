@@ -22,7 +22,7 @@ struct ArtistList: View {
                             Text(artist.name)
                             Text("\(artist.showCount) Shows")
                                 .font(.subheadline)
-                                .foregroundColor(.gray)
+                                .foregroundColor(.secondary)
                         }
                         .padding([.top, .bottom], 2)
                     }

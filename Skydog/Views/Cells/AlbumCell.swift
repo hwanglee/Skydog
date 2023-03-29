@@ -11,20 +11,27 @@ struct AlbumCell: View, Equatable {
     var venue: String
     var date: String
     var image: UIImage
+    var rating: String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: 6) {
             Image(uiImage: image.preparingThumbnail(of: .init(width: 150, height: 150)) ?? UIImage())
                 .resizable()
                 .frame(width: 150, height: 150)
                 .scaledToFill()
                 .clipped()
                 .cornerRadius(8)
-            Text(date)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
+            
+            VStack(alignment: .leading, spacing: 2) {
+                Text(date)
+                    .font(.subheadline)
+                
+                Text(rating)
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+            }
+            
         }
-        .multilineTextAlignment(.leading)
         .frame(width: 150)
     }
     
@@ -35,6 +42,6 @@ struct AlbumCell: View, Equatable {
 
 struct AlbumCell_Previews: PreviewProvider {
     static var previews: some View {
-        AlbumCell(venue: "testing a long name to see what happens", date: "test", image: UIImage(named: "\(0)")!)
+        AlbumCell(venue: "testing a long name to see what happens", date: "test", image: UIImage(named: "\(0)")!, rating: "Rating: 0.0")
     }
 }
