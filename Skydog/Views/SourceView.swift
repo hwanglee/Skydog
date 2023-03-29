@@ -44,8 +44,7 @@ struct SourceView: View {
                                     Spacer()
                                     
                                     if track == player.currentTrack {
-                                        Image(systemName: "speaker.wave.3.fill")
-                                            .font(.caption2)
+                                        AnimatedSpeakerIcon()
                                     }
                                 }
                             }
@@ -63,6 +62,7 @@ struct SourceView: View {
             }
             .listStyle(.inset)
         }
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button("Source") {

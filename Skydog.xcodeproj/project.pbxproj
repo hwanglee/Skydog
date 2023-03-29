@@ -62,6 +62,7 @@
 		14DEC5E929D0D474004AC6A3 /* VolumeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC5E829D0D474004AC6A3 /* VolumeObserver.swift */; };
 		14DEC5F429D0F727004AC6A3 /* ArtistListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC5F329D0F727004AC6A3 /* ArtistListViewModel.swift */; };
 		14E585D02884D3FB00398AA9 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E585CF2884D3FB00398AA9 /* UIImage+Color.swift */; };
+		14EA466F29D3F9FC00404608 /* AnimatedSpeakerIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EA466E29D3F9FC00404608 /* AnimatedSpeakerIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,7 @@
 		14DEC5E829D0D474004AC6A3 /* VolumeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeObserver.swift; sourceTree = "<group>"; };
 		14DEC5F329D0F727004AC6A3 /* ArtistListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListViewModel.swift; sourceTree = "<group>"; };
 		14E585CF2884D3FB00398AA9 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
+		14EA466E29D3F9FC00404608 /* AnimatedSpeakerIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedSpeakerIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 				14ADCC12287D28EB00152965 /* ScrollViewHeader.swift */,
 				14B144E829D10D9000A35245 /* AsyncContentView.swift */,
 				14B144F229D293C900A35245 /* PlaybackButton.swift */,
+				14EA466E29D3F9FC00404608 /* AnimatedSpeakerIcon.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				14ADCC34287D28EB00152965 /* SourceSet.swift in Sources */,
 				14E585D02884D3FB00398AA9 /* UIImage+Color.swift in Sources */,
 				14ADCC3C287E737600152965 /* AudioPlayer.swift in Sources */,
+				14EA466F29D3F9FC00404608 /* AnimatedSpeakerIcon.swift in Sources */,
 				14ADCC2F287D28EB00152965 /* ShowsList.swift in Sources */,
 				149AEB7E29D005D4007BF3D3 /* VolumeSliderView.swift in Sources */,
 				149AEB6E29CFFC4B007BF3D3 /* PlayerView.swift in Sources */,
