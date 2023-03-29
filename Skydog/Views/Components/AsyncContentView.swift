@@ -24,19 +24,20 @@ protocol LoadableObject: ObservableObject {
 struct AsyncContentView<Source: LoadableObject, Content: View>: View {
     @ObservedObject var source: Source
     var content: (Source.Output) -> Content
-
+    
     var body: some View {
         switch source.state {
         case .idle:
-            Color.clear.onAppear {
-                Task {
-                    await source.load()
+            Color.clear
+                .onAppear {
+                    Task {
+                        await source.load()
+                    }
                 }
-            }
         case .loading:
             ProgressView()
         case .failed(let error):
-//            ErrorView(error: error, retryHandler: source.load)
+            //            ErrorView(error: error, retryHandler: source.load)
             Text(error.localizedDescription)
         case .loaded(let output):
             content(output)

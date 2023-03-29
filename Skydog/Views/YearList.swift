@@ -11,16 +11,17 @@ struct YearList: View {
     var years: [Year]
     
     var body: some View {
-        List(years, id: \.id) { item in
+        List(years, id: \.id) { year in
             NavigationLink {
-                YearView(year: item)
+                YearView(viewModel: .init(year: year))
             } label: {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(item.year)
-                    Text("\(item.showCount) Shows")
+                    Text(year.year)
+                    Text("\(year.showCount) Shows")
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }
+                .padding([.top, .bottom], 2)
             }
         }
         .listStyle(.inset)

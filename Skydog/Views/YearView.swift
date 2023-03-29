@@ -8,26 +8,18 @@
 import SwiftUI
 
 struct YearView: View {
-    var year: Year
-    @State private var shows = [Show]()
+    @ObservedObject var viewModel: YearViewModel
     
     var body: some View {
-        ShowsList(shows: shows.map { .init(show: $0) })
-            .navigationTitle(year.year)
-            .task {
-                try? await loadData()
-            }
-    }
-    
-    private func loadData() async throws {
-        async let shows = DataLoader.shared.fetchShows(artistSlug: year.artistUuid, year: year.year)
-        self.shows = try await shows
-        print(self.shows)
+        AsyncContentView(source: viewModel) { _ in
+            ShowsList(shows: viewModel.shows.map { .init(show: $0) })
+                .navigationTitle(viewModel.year.year)
+        }
     }
 }
 
 struct YearView_Previews: PreviewProvider {
     static var previews: some View {
-        YearView(year: .example)
+        YearView(viewModel: .init(year: .example))
     }
 }

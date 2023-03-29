@@ -17,7 +17,7 @@ struct ScrollViewHeader: View {
                 .fontWeight(.bold)
                 .padding(.leading, 10)
             Image(systemName: "chevron.right")
-                .foregroundColor(Color(UIColor.tertiaryLabel))
+                .foregroundColor(.gray)
             Spacer()
         }
     }

@@ -27,6 +27,7 @@ struct SourceView: View {
                         .padding(.top, 14)
                         .padding(.bottom, 10)
                 }
+                .listSectionSeparator(.hidden)
                 
                 ForEach(viewModel.sets, id: \.uuid) { sourceSet in
                     Section(sourceSet.isEncore ? "Encore" : "Set \(sourceSet.index)") {
@@ -54,11 +55,14 @@ struct SourceView: View {
                 }
                 
                 if let info = viewModel.infoLabel {
-                    Text(info)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .padding(.top, 4)
-                        .padding(.bottom, 30)
+                    Section {
+                        Text(info)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .padding(.top, 8)
+                            .padding(.bottom, 30)
+                    }
+                    .listSectionSeparator(.hidden)
                 }
             }
             .listStyle(.inset)

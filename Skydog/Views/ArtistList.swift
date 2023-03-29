@@ -14,13 +14,13 @@ struct ArtistList: View {
     var body: some View {
         NavigationView {
             AsyncContentView(source: viewModel) { _ in
-                List(viewModel.filteredArtists, id: \.slug) { item in
+                List(viewModel.filteredArtists, id: \.slug) { artist in
                     NavigationLink {
-                        ArtistView(artist: item)
+                        ArtistView(viewModel: .init(artist: artist))
                     } label: {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(item.name)
-                            Text("\(item.showCount) Shows")
+                            Text(artist.name)
+                            Text("\(artist.showCount) Shows")
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
                         }
