@@ -16,42 +16,65 @@ struct SourceView: View {
     
     var body: some View {
         AsyncContentView(source: viewModel) { _ in
-            List(viewModel.sets, id: \.uuid) { sourceSet in
-                Section(sourceSet.isEncore ? "Encore" : "Set \(sourceSet.index)") {
-                    ForEach(sourceSet.tracks, id: \.uuid) { track in
-                        Button {
-                            updatePlayer(track: track)
-                        } label: {
-                            HStack(spacing: 20) {
-                                Text("\(track.trackPosition)")
-                                    .foregroundColor(.secondary)
-                                Text(track.title)
-                                    .lineLimit(1)
-                                Spacer()
-                                
-                                if track == player.currentTrack {
-                                    Image(systemName: "speaker.wave.3.fill")
-                                        .font(.caption2)
+            List {
+                Section {
+                    Image(uiImage: albumArt)
+                        .resizable()
+                        .clipped()
+                        .cornerRadius(8)
+                        .frame(width: 240, height: 240)
+                        .frame(maxWidth: .infinity)
+                        .padding(.top, 14)
+                        .padding(.bottom, 10)
+                }
+                
+                ForEach(viewModel.sets, id: \.uuid) { sourceSet in
+                    Section(sourceSet.isEncore ? "Encore" : "Set \(sourceSet.index)") {
+                        ForEach(sourceSet.tracks, id: \.uuid) { track in
+                            Button {
+                                updatePlayer(track: track)
+                            } label: {
+                                HStack(spacing: 20) {
+                                    Text("\(track.trackPosition)")
+                                        .foregroundColor(.secondary)
+                                    
+                                    Text(track.title)
+                                        .lineLimit(1)
+                                    
+                                    Spacer()
+                                    
+                                    if track == player.currentTrack {
+                                        Image(systemName: "speaker.wave.3.fill")
+                                            .font(.caption2)
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    Button("Source") {
-                        showingSheet.toggle()
-                    }
+                
+                if let info = viewModel.infoLabel {
+                    Text(info)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding(.top, 4)
+                        .padding(.bottom, 30)
                 }
             }
-            .sheet(isPresented: $showingSheet) {
-                SourcePicker(
-                    viewModel: .init(sources: viewModel.sources),
-                    selectedSource: $viewModel.selectedSource
-                )
-            }
             .listStyle(.inset)
+        }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button("Source") {
+                    showingSheet.toggle()
+                }
+            }
+        }
+        .sheet(isPresented: $showingSheet) {
+            SourcePicker(
+                viewModel: .init(sources: viewModel.sources),
+                selectedSource: $viewModel.selectedSource
+            )
         }
     }
     

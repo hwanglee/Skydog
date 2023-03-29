@@ -13,7 +13,24 @@ class SourceViewModel: LoadableObject {
     @Published var state: LoadingState<[Source]> = .idle
     @Published var sources: [Source] = []
     @Published var selectedSource: Source?
+    
     var sets: [SourceSet] { selectedSource?.sets ?? [] }
+    var infoLabel: String? {
+        let numberOfTracks = selectedSource?.sets.reduce(0) { $0 + $1.tracks.count }
+        let totalTime = selectedSource?.sets.reduce(0) { $0 + $1.tracks.reduce(0) { $0 + ($1.duration ?? 0) } }
+        
+        guard let numberOfTracks = numberOfTracks, let totalTime = totalTime else { return nil }
+        
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute]
+        formatter.unitsStyle = .full
+//        formatter.zeroFormattingBehavior = .pad
+
+        guard var formattedDuration = formatter.string(from: TimeInterval(totalTime)) else { return nil }
+        formattedDuration.replace(",", with: "")
+        
+        return "\(numberOfTracks) Tracks, \(formattedDuration)"
+    }
     
     private(set) var show: Show
     
