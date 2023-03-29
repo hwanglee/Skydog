@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SourceView: View {
     @ObservedObject var viewModel: SourceViewModel
+    var albumArt: UIImage
+    
     @State private var showingSheet = false
     @EnvironmentObject var player: AudioPlayer
     
@@ -26,6 +28,11 @@ struct SourceView: View {
                                 Text(track.title)
                                     .lineLimit(1)
                                 Spacer()
+                                
+                                if track == player.currentTrack {
+                                    Image(systemName: "speaker.wave.3.fill")
+                                        .font(.caption2)
+                                }
                             }
                         }
                     }
@@ -56,6 +63,6 @@ struct SourceView: View {
 
 struct SourceView_Previews: PreviewProvider {
     static var previews: some View {
-        SourceView(viewModel: .init(show: .example))
+        SourceView(viewModel: .init(show: .example), albumArt: UIImage())
     }
 }

@@ -48,6 +48,6 @@ struct SourcePickerListItem: View {
 
 struct SourcePickerListItem_Previews: PreviewProvider {
     static var previews: some View {
-        SourceView(viewModel: .init(show: .example))
+        SourceView(viewModel: .init(show: .example), albumArt: .init())
     }
 }

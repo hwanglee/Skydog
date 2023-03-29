@@ -18,9 +18,11 @@ struct ArtistList: View {
                     NavigationLink {
                         ArtistView(artist: item)
                     } label: {
-                        VStack(alignment: .leading, spacing: 5) {
+                        VStack(alignment: .leading, spacing: 4) {
                             Text(item.name)
-                            Text("\(item.showCount) Shows").font(.subheadline).foregroundColor(.gray)
+                            Text("\(item.showCount) Shows")
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
                         }
                     }
                 }

@@ -20,8 +20,8 @@ struct YearView: View {
     }
     
     private func loadData() async throws {
-        async let years = DataLoader.shared.fetchShows(artistSlug: year.artistUuid, year: year.year)
-        self.shows = try await years
+        async let shows = DataLoader.shared.fetchShows(artistSlug: year.artistUuid, year: year.year)
+        self.shows = try await shows
         print(self.shows)
     }
 }

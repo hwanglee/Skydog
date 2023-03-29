@@ -14,15 +14,15 @@ struct ShowsScrollViewSection: View {
     var body: some View {
         Section {
             HorizontalScrollView {
-                ForEach(shows.prefix(10), id: \.show.id) { item in
+                ForEach(shows.prefix(10), id: \.show.id) { show in
                     NavigationLink {
-                        SourceView(viewModel: .init(show: item.show))
-                            .navigationTitle(item.date)
+                        SourceView(viewModel: .init(show: show.show), albumArt: show.albumArt)
+                            .navigationTitle(show.date)
                     } label: {
                         AlbumCell(
-                            venue: item.venueName,
-                            date: item.date,
-                            image: item.albumArt
+                            venue: show.venueName,
+                            date: show.date,
+                            image: show.albumArt
                         )
                     }
                 }

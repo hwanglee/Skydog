@@ -16,6 +16,7 @@ struct YearCell: View, Equatable {
             .overlay(alignment: .center) {
                 Text(year)
                     .font(.headline)
+                    .foregroundColor(.white)
             }
             .cornerRadius(8)
             .frame(width: 150, height: 150)

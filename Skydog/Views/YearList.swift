@@ -15,7 +15,12 @@ struct YearList: View {
             NavigationLink {
                 YearView(year: item)
             } label: {
-                Text(item.year)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(item.year)
+                    Text("\(item.showCount) Shows")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
             }
         }
         .listStyle(.inset)

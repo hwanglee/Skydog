@@ -13,7 +13,7 @@ struct ShowsList: View {
     var body: some View {
         List(shows, id: \.show.id) { show in
             NavigationLink {
-                SourceView(viewModel: .init(show: show.show))
+                SourceView(viewModel: .init(show: show.show), albumArt: show.albumArt)
                     .navigationTitle(show.date)
             } label: {
                 HStack(spacing: 14) {

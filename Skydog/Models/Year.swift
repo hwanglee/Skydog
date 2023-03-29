@@ -13,10 +13,11 @@ struct Year: Decodable {
     var uuid: String
     var artistId: Int
     var artistUuid: String
+    var showCount: Int
 }
 
 extension Year {
     static var example: Year {
-        return .init(id: 0, year: "2023", uuid: "uuid", artistId: 1, artistUuid: "test")
+        return .init(id: 0, year: "2023", uuid: "uuid", artistId: 1, artistUuid: "test", showCount: 10)
     }
 }
