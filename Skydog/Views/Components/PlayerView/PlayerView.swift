@@ -63,11 +63,16 @@ struct PlayerView: View {
                    maxHeight: .infinity,
                    alignment: .top)
             .background {
-                Image(uiImage: player.albumArt).resizable()
-                    .edgesIgnoringSafeArea(.all)
-                    .allowsHitTesting(false)
-                    .blur(radius: 100)
-                    .brightness(colorScheme == .dark ? -0.2 : -0.6)
+                ZStack {
+                    Image(uiImage: player.albumArt).resizable()
+                        .edgesIgnoringSafeArea(.all)
+                        .allowsHitTesting(false)
+                    
+                    Rectangle()
+                        .background(.ultraThinMaterial, in: Rectangle())
+                        .environment(\.colorScheme, .light)
+                        .edgesIgnoringSafeArea(.all)
+                }
             }
         }
         .tint(.white)

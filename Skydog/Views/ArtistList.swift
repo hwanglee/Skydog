@@ -24,6 +24,7 @@ struct ArtistList: View {
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
                         }
+                        .padding([.top, .bottom], 2)
                     }
                 }
                 .listStyle(.inset)

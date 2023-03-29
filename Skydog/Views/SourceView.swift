@@ -48,6 +48,7 @@ struct SourceView: View {
                                     }
                                 }
                             }
+                            .padding([.top, .bottom], 2)
                         }
                     }
                 }
