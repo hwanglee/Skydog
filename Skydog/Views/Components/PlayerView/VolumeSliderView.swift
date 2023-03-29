@@ -15,8 +15,8 @@ struct VolumeSliderView: View {
         VolumeSlider(
             value: $volObserver.volume,
             inRange: 0...1,
-            activeFillColor: .primary,
-            fillColor: .primary,
+            activeFillColor: .white,
+            fillColor: .white,
             emptyColor: .gray,
             height: 8) {
                 volObserver.setVolume($0)

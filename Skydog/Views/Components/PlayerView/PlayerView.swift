@@ -12,7 +12,7 @@ import LNPopupController
 struct PlayerView: View {
     @EnvironmentObject var player: AudioPlayer
     @State var playbackProgress: Float = Float.random(in: 0..<1)
-    @State var background = Int.random(in: 0...5)
+    @Environment(\.colorScheme) var colorScheme
     private let screenHeight = UIScreen.main.bounds.height
     
     var body: some View {
@@ -28,14 +28,13 @@ struct PlayerView: View {
                 
                 VStack(spacing: geometry.size.height * 30.0 / screenHeight) {
                     HStack {
-                        VStack(alignment: .leading) {
-                            Text(player.currentTrackName ?? "")
-                                .font(.system(size: 20, weight: .bold))
-                        }
-                        .lineLimit(1)
-                        .frame(minWidth: 0,
-                               maxWidth: .infinity,
-                               alignment: .topLeading)
+                        Text(player.currentTrackName ?? "")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(.white)
+                            .lineLimit(1)
+                            .frame(minWidth: 0,
+                                   maxWidth: .infinity,
+                                   alignment: .topLeading)
                         Button(action: {}, label: {
                             Image(systemName: "ellipsis.circle")
                                 .font(.title)
@@ -44,9 +43,7 @@ struct PlayerView: View {
                     
                     ProgressView(value: playbackProgress)
                         .padding([.bottom], geometry.size.height * 30.0 / screenHeight)
-                    
-//                    Text(player.currentTimeString + "    " + player.durationString)
-                    
+
                     if player.state == .loading {
                         ProgressView()
                             .frame(width: 60, height: 60)
@@ -67,12 +64,13 @@ struct PlayerView: View {
                    alignment: .top)
             .background {
                 Image(uiImage: player.albumArt).resizable()
-                .edgesIgnoringSafeArea(.all)
-                .allowsHitTesting(false)
-                .blur(radius: 100)
+                    .edgesIgnoringSafeArea(.all)
+                    .allowsHitTesting(false)
+                    .blur(radius: 100)
+                    .brightness(colorScheme == .dark ? -0.2 : -0.6)
             }
         }
-        .tint(.primary)
+        .tint(.white)
         .popupTitle(player.currentTrackName ?? "")
         .popupImage(
             Image(
