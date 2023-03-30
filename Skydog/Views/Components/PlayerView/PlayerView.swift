@@ -12,7 +12,6 @@ import LNPopupController
 struct PlayerView: View {
     @EnvironmentObject var player: AudioPlayer
     @State var playbackProgress: Float = Float.random(in: 0..<1)
-    private let screenHeight = UIScreen.main.bounds.height
     
     var body: some View {
         GeometryReader { geometry in
@@ -47,6 +46,7 @@ struct PlayerView: View {
                     Group {
                         if player.state == .loading {
                             ProgressView()
+                                .scaleEffect(1.6)
                         } else {
                             PlayerControls()
                         }
@@ -57,10 +57,9 @@ struct PlayerView: View {
                     
                     BottomButtons()
                         .frame(maxHeight: .infinity)
-//                        .frame(height: 40)
                 }
                 .padding([.leading, .trailing], geometry.size.width * 0.1)
-                .padding(.top, geometry.size.height * 0.1)
+                .padding(.top, geometry.size.height * 0.08)
             }
             .frame(
                 maxWidth: .infinity,

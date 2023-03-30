@@ -17,30 +17,33 @@ struct MinimizedPlayerView: View {
             Button(action: {
                 print("Previous")
             }) {
-                if !isLoading {
-                    Image(systemName: "backward.fill")
-                }
+                Image(systemName: "backward.fill")
             }
             
             ZStack {
                 if isLoading {
                     ProgressView()
+                        .frame(maxWidth: .infinity)
+                    
                 } else {
                     PlaybackButton(isPlaying: player.state == .playing) {
                         player.toggle()
                     }
                     .frame(width: 42, height: 42)
+                    .transaction { transaction in
+                        transaction.animation = nil
+                    }
                 }
             }
             
             Button(action: {
                 print("Next")
             }) {
-                if !isLoading {
-                    Image(systemName: "forward.fill")
-                }
+                Image(systemName: "forward.fill")
             }
         }
+        .animation(.easeOut(duration: 0.1), value: isLoading)
+        .disabled(isLoading)
         .tint(.primary)
     }
 }
