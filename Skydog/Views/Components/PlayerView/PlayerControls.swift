@@ -13,7 +13,7 @@ struct PlayerControls: View {
     
     var body: some View {
         GeometryReader { geometry in
-            HStack(spacing: geometry.size.width / 6) {
+            HStack(alignment: .center, spacing: geometry.size.width / 6) {
                 Button(action: {}, label: {
                     Image(systemName: "backward.fill")
                 })
@@ -22,7 +22,6 @@ struct PlayerControls: View {
                     player.toggle()
                 }
                 .font(.system(size: 42))
-                .frame(width: 66, height: 66)
                 
                 Button(action: {}, label: {
                     Image(systemName: "forward.fill")

@@ -8,10 +8,8 @@
 import Foundation
 import UIKit.UIImage
 
-class ShowViewModel {
-    private(set) var show: Show
-    
-    private(set) lazy var albumArt = createAlbumArt()
+class ShowViewModel: ObservableObject {
+    @Published var albumArt = UIImage()
     
     var date: String {
         let dateFormatter = DateFormatter()
@@ -29,16 +27,20 @@ class ShowViewModel {
         return "Rating: \(show.avgRating.formatted(.number.precision(.fractionLength(1))))"
     }
     
+    private(set) var show: Show
+    
     init(show: Show) {
         self.show = show
+        
+        createAlbumArt()
     }
     
-    private func createAlbumArt() -> UIImage {
+    private func createAlbumArt() {
         let imageIndex = venueName.count % 18
         let image = UIImage(named: "\(imageIndex)")
         let color = (venueName + show.displayDate).generateColor().withAlphaComponent(0.1)
         let albumArt = image?.tint(tintColor: color).writeText(text: venueName, textPosition: .left)
         
-        return albumArt ?? UIImage()
+        self.albumArt = albumArt ?? UIImage()
     }
 }

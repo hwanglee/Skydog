@@ -58,8 +58,7 @@ class AudioPlayer: ObservableObject {
             do {
                 try session.setCategory(.playback,
                                         mode: .default,
-                                        options: [.duckOthers])
-                print("Playback OK")
+                                        options: [])
                 
                 try session.setActive(true)
                 
@@ -117,10 +116,13 @@ class AudioPlayer: ObservableObject {
         player
             .publisher(for: \.timeControlStatus)
             .receive(on: DispatchQueue.main)
+            .dropFirst()
             .sink { [weak self] timeControlStatus in
                 switch timeControlStatus {
                 case .waitingToPlayAtSpecifiedRate:
-                    if self?.state == .idle {
+                    if self?.player.currentItem?.isPlaybackLikelyToKeepUp ?? false {
+                        self?.state = .playing
+                    } else {
                         self?.state = .loading
                     }
                     

@@ -12,7 +12,6 @@ import LNPopupController
 struct PlayerView: View {
     @EnvironmentObject var player: AudioPlayer
     @State var playbackProgress: Float = Float.random(in: 0..<1)
-    @Environment(\.colorScheme) var colorScheme
     private let screenHeight = UIScreen.main.bounds.height
     
     var body: some View {
@@ -23,10 +22,10 @@ struct PlayerView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                     .aspectRatio(contentMode: .fit)
                     .padding([.leading, .trailing], 10)
-                    .padding([.top], geometry.size.height * 60 / screenHeight)
+                    .padding([.top], geometry.size.height * 0.08)
                     .shadow(radius: 5)
                 
-                VStack(spacing: geometry.size.height * 30.0 / screenHeight) {
+                VStack(spacing: 0) {
                     HStack {
                         Text(player.currentTrackName ?? "")
                             .font(.system(size: 20, weight: .bold))
@@ -40,39 +39,44 @@ struct PlayerView: View {
                                 .font(.title)
                         })
                     }
+                    .padding(.bottom, 20)
                     
                     ProgressView(value: playbackProgress)
-                        .padding([.bottom], geometry.size.height * 30.0 / screenHeight)
+                        .padding(.bottom, 10)
                     
-                    if player.state == .loading {
-                        ProgressView()
-                            .frame(width: 60, height: 60)
-                    } else {
-                        PlayerControls()
-                        Spacer()
+                    Group {
+                        if player.state == .loading {
+                            ProgressView()
+                        } else {
+                            PlayerControls()
+                        }
                     }
+                    .frame(maxHeight: .infinity)
                     
                     VolumeSliderView()
+                    
                     BottomButtons()
+                        .frame(maxHeight: .infinity)
+//                        .frame(height: 40)
                 }
-                .padding(geometry.size.height * 40.0 / UIScreen.main.bounds.height)
+                .padding([.leading, .trailing], geometry.size.width * 0.1)
+                .padding(.top, geometry.size.height * 0.1)
             }
-            .frame(minWidth: 0,
-                   maxWidth: .infinity,
-                   minHeight: 0,
-                   maxHeight: .infinity,
-                   alignment: .top)
+            .frame(
+                maxWidth: .infinity,
+                maxHeight: .infinity,
+                alignment: .top
+            )
             .background {
                 ZStack {
                     Image(uiImage: player.albumArt).resizable()
-                        .edgesIgnoringSafeArea(.all)
                         .allowsHitTesting(false)
                     
                     Rectangle()
                         .background(.ultraThinMaterial, in: Rectangle())
                         .environment(\.colorScheme, .light)
-                        .edgesIgnoringSafeArea(.all)
                 }
+                .edgesIgnoringSafeArea(.all)
             }
         }
         .tint(.white)
@@ -84,7 +88,7 @@ struct PlayerView: View {
             .resizable()
         )
         .popupBarItems({
-            MinimizedPlayerView()
+            MinimizedPlayerView(isLoading: player.state == .loading)
         })
     }
 }

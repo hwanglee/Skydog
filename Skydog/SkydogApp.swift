@@ -9,13 +9,10 @@ import SwiftUI
 
 @main
 struct SkydogApp: App {
-    @StateObject var audioPlayer = AudioPlayer()
-    
     var body: some Scene {
         WindowGroup {
             BaseView()
-                .environmentObject(audioPlayer)
-                .tint(.teal)
+                .tint(.indigo)
         }
     }
 }

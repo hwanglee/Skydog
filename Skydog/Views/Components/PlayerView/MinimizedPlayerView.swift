@@ -10,28 +10,33 @@ import SwiftUI
 // TODO: Rewrite view logic. For some reason its not observing the player state change.
 struct MinimizedPlayerView: View {
     @EnvironmentObject var player: AudioPlayer
+    var isLoading = false
     
     var body: some View {
         Group {
             Button(action: {
                 print("Previous")
             }) {
-                if player.state != .loading {
+                if !isLoading {
                     Image(systemName: "backward.fill")
                 }
             }
             
-            if player.state != .loading {
-                PlaybackButton(isPlaying: player.state == .playing) {
-                    player.toggle()
+            ZStack {
+                if isLoading {
+                    ProgressView()
+                } else {
+                    PlaybackButton(isPlaying: player.state == .playing) {
+                        player.toggle()
+                    }
+                    .frame(width: 42, height: 42)
                 }
-                .frame(width: 42, height: 42)
             }
             
             Button(action: {
                 print("Next")
             }) {
-                if player.state != .loading {
+                if !isLoading {
                     Image(systemName: "forward.fill")
                 }
             }

@@ -13,6 +13,7 @@ struct ArtistView: View {
     var sectionSpacing: CGFloat = 20
     
     var body: some View {
+        let _ = Self._printChanges()
         AsyncContentView(source: viewModel) { _ in
             ScrollView(.vertical) {
                 VStack(spacing: sectionSpacing) {

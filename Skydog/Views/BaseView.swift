@@ -10,9 +10,8 @@ import LNPopupUI
 import Combine
 
 struct BaseView: View {
-    @EnvironmentObject var player: AudioPlayer
-    @State var isPopupBarPresented  = false
-    @State var isPopupOpen = false
+    @StateObject var player = AudioPlayer()
+    @State var isPopupBarPresented = false
     
     var body: some View {
         TabView {
@@ -28,16 +27,18 @@ struct BaseView: View {
                     Image(systemName: "square.stack.fill")
                 }
         }
+        .environmentObject(player)
         // https://stackoverflow.com/a/70867370/21492313
         .onAppear {
             let tabBarAppearance = UITabBarAppearance()
             tabBarAppearance.configureWithDefaultBackground()
             UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         }
-        .popup(isBarPresented: $player.hasTrack, isPopupOpen: $isPopupOpen) {
+        .popup(isBarPresented: $player.hasTrack) {
             PlayerView()
         }
         .popupBarMarqueeScrollEnabled(true)
+        .popupInteractionStyle(.customizedSnap(percent: 0.25))
     }
 }
 

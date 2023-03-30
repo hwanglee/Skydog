@@ -19,6 +19,7 @@ struct BottomButtons: View {
             
             AirPlayButton()
                 .frame(minWidth: 0, maxWidth: .infinity)
+                .frame(height: 36)
             
             Button(action: {}, label: {
                 Image(systemName: "repeat")

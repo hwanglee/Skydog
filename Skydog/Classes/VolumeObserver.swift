@@ -19,13 +19,6 @@ final class VolumeObserver: ObservableObject {
     private var progressObserver: NSKeyValueObservation!
 
     func subscribe() {
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient)
-            try session.setActive(true, options: .notifyOthersOnDeactivation)
-        } catch {
-            print("cannot activate session")
-        }
-
         progressObserver = session.observe(\.outputVolume) { [self] (session, value) in
             DispatchQueue.main.async {
                 self.volume = session.outputVolume
@@ -36,6 +29,7 @@ final class VolumeObserver: ObservableObject {
     func setVolume(_ volume: Float) {
         let volumeView = MPVolumeView(frame: .zero)
         volumeView.alpha = 0.001
+        volumeView.isHidden = true
         let slider = volumeView.subviews.first(where: { $0 is UISlider }) as? UISlider
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
