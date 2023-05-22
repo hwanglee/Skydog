@@ -16,12 +16,12 @@ final class VolumeObserver: ObservableObject {
     private let session = AVAudioSession.sharedInstance()
 
     // Observer
-    private var progressObserver: NSKeyValueObservation!
+    private var progressObserver: NSKeyValueObservation?
 
     func subscribe() {
-        progressObserver = session.observe(\.outputVolume) { [self] (session, value) in
+        progressObserver = session.observe(\.outputVolume) { [weak self] (session, value) in
             DispatchQueue.main.async {
-                self.volume = session.outputVolume
+                self?.volume = session.outputVolume
             }
         }
     }
@@ -38,7 +38,7 @@ final class VolumeObserver: ObservableObject {
     }
 
     func unsubscribe() {
-        self.progressObserver.invalidate()
+        progressObserver?.invalidate()
     }
 
     init() {

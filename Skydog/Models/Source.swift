@@ -10,7 +10,7 @@ import Foundation
 struct Source: Decodable {
     var reviewCount: Int
     var description: String
-    var avgRating: Float
+    var avgRating: Double
     var duration: Int
     var sets: [SourceSet]
     var uuid: String

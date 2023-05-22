@@ -14,9 +14,7 @@ class SourceListItemViewModel: ObservableObject {
     
     var formattedTransferrer: String { formatted(source.transferrer) }
     
-    var averageRating: String {
-        source.avgRating.formatted(.number.precision(.fractionLength(1)))
-    }
+    var averageRating: Double { source.avgRating }
     
     var isSoundboard: Bool { source.isSoundboard }
     

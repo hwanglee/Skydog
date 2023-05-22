@@ -19,11 +19,7 @@ struct SourcePickerListItem: View {
                 Text("**Transferrer:** \(viewModel.formattedTransferrer)")
                     .font(.subheadline)
                 HStack(spacing: 10) {
-                    HStack(spacing: 2) {
-                        Text(viewModel.averageRating)
-                            .font(.subheadline)
-                        Image(systemName: "star.fill").font(.caption)
-                    }
+                    RatingLabel(viewModel.averageRating)
                     
                     if viewModel.isSoundboard {
                         SoundboardBadge()

@@ -11,7 +11,7 @@ struct AlbumCell: View, Equatable {
     var venue: String
     var date: String
     var image: UIImage
-    var rating: String
+    var rating: Double
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
@@ -26,9 +26,7 @@ struct AlbumCell: View, Equatable {
                 Text(date)
                     .font(.subheadline)
                 
-                Text(rating)
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
+                RatingLabel(rating)
             }
             
         }
@@ -42,6 +40,6 @@ struct AlbumCell: View, Equatable {
 
 struct AlbumCell_Previews: PreviewProvider {
     static var previews: some View {
-        AlbumCell(venue: "testing a long name to see what happens", date: "test", image: UIImage(named: "\(0)")!, rating: "Rating: 0.0")
+        AlbumCell(venue: "testing a long name to see what happens", date: "test", image: UIImage(named: "\(0)")!, rating: 3.4)
     }
 }

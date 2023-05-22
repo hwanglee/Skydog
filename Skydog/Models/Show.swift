@@ -12,7 +12,7 @@ struct Show: Decodable {
     var id: Int
     var displayDate: String
     var venue: Venue?
-    var avgRating: Float
+    var avgRating: Double
     var uuid: String
 }
 

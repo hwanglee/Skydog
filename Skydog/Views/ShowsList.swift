@@ -17,7 +17,7 @@ struct ShowsList: View {
                     viewModel: .init(show: show.show),
                     albumArt: show.albumArt
                 )
-                    .navigationTitle(show.date)
+                .navigationTitle(show.date)
             } label: {
                 HStack(spacing: 14) {
                     Image(uiImage: show.albumArt)
@@ -30,13 +30,13 @@ struct ShowsList: View {
                         Text(show.venueName)
                             .lineLimit(1)
                         
-                        Text(show.date)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                        
-                        Text(show.averageRatingLabel)
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
+                        Group {
+                            Text(show.date)
+                                .font(.subheadline)
+                            
+                            RatingLabel(show.averageRating)
+                        }
+                        .foregroundColor(.secondary)
                     }
                 }
             }

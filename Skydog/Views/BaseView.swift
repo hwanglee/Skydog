@@ -11,7 +11,6 @@ import Combine
 
 struct BaseView: View {
     @StateObject var player = AudioPlayer()
-    @State var isPopupBarPresented = false
     
     var body: some View {
         TabView {

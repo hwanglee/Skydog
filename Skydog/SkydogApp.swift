@@ -12,7 +12,7 @@ struct SkydogApp: App {
     var body: some Scene {
         WindowGroup {
             BaseView()
-                .tint(.indigo)
+                .tint(.accentColor)
         }
     }
 }

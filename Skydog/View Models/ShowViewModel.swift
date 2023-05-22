@@ -23,9 +23,7 @@ class ShowViewModel: ObservableObject {
     
     var venueName: String { show.venue?.name ?? "Unknown Venue" }
     
-    var averageRatingLabel: String {
-        return "Rating: \(show.avgRating.formatted(.number.precision(.fractionLength(1))))"
-    }
+    var averageRating: Double { show.avgRating }
     
     private(set) var show: Show
     

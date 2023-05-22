@@ -23,7 +23,7 @@ struct ShowsScrollViewSection: View {
                             venue: show.venueName,
                             date: show.date,
                             image: show.albumArt,
-                            rating: show.averageRatingLabel
+                            rating: show.averageRating
                         )
                     }
                 }
