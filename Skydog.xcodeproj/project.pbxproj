@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		147349E02928ABA700E4397B /* DataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147349DF2928ABA700E4397B /* DataLoaderTests.swift */; };
+		148934BA2A0EB2E400ACBA36 /* RatingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148934B92A0EB2E400ACBA36 /* RatingLabel.swift */; };
 		149AEB6E29CFFC4B007BF3D3 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AEB6D29CFFC4B007BF3D3 /* PlayerView.swift */; };
 		149AEB7329CFFCC9007BF3D3 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AEB7229CFFCC9007BF3D3 /* BaseView.swift */; };
 		149AEB7829D004D8007BF3D3 /* MinimizedPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149AEB7729D004D8007BF3D3 /* MinimizedPlayerView.swift */; };
@@ -100,6 +101,7 @@
 
 /* Begin PBXFileReference section */
 		147349DF2928ABA700E4397B /* DataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderTests.swift; sourceTree = "<group>"; };
+		148934B92A0EB2E400ACBA36 /* RatingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingLabel.swift; sourceTree = "<group>"; };
 		149AEB6D29CFFC4B007BF3D3 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		149AEB7229CFFCC9007BF3D3 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		149AEB7729D004D8007BF3D3 /* MinimizedPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimizedPlayerView.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				14B144E829D10D9000A35245 /* AsyncContentView.swift */,
 				14B144F229D293C900A35245 /* PlaybackButton.swift */,
 				14EA466E29D3F9FC00404608 /* AnimatedSpeakerIcon.swift */,
+				148934B92A0EB2E400ACBA36 /* RatingLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				14ADCC2E287D28EB00152965 /* ArtistView.swift in Sources */,
 				14DEC5E429D0C060004AC6A3 /* CustomSlider.swift in Sources */,
 				149AEB7829D004D8007BF3D3 /* MinimizedPlayerView.swift in Sources */,
+				148934BA2A0EB2E400ACBA36 /* RatingLabel.swift in Sources */,
 				14B144EF29D1E6A300A35245 /* SourcePickerListItem.swift in Sources */,
 				14ADCC2C287D28EB00152965 /* ScrollViewHeader.swift in Sources */,
 				14ADCC39287D28EB00152965 /* DataLoader.swift in Sources */,
